@@ -11,7 +11,13 @@ function ProductosCat() {
   //console.log("lo que da el hook es", valorDevueltoPorHookUseSearchParams);
   const [searchParams, setSearchParams] = useSearchParams();
   console.log("valor 1", searchParams, "valor 2", setSearchParams);
-
+//const token = localStorage.getItem('token');
+/*
+    headers{
+    "Content-Type": "application/json" },
+    }
+    let headerswt= { ...headers}
+*/
   return (
     <div className="d-flex flex-row justify-content-center align-items-center ProductosCat">
       {/* <h3>Pagina de productos por categorias se carga dentro del layout</h3> */}
