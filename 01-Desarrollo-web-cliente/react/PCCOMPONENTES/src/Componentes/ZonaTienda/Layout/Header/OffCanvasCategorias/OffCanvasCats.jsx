@@ -1,6 +1,7 @@
 import "./OffCanvas.css";
 import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
+import { apiFetch } from "../../../../../utils/apiFetch";
 
 function OffCanvasCats() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
@@ -13,7 +14,7 @@ function OffCanvasCats() {
      al servidor. Si el array tuviera variables, se repetiria cada vez que
      alguna de ellas cambie. */
   useEffect(() => {
-    fetch("/api/categorias") // Vite reenvía esto a http://localhost:3000
+    apiFetch("/api/categorias") // Vite reenvía esto a http://localhost:3000
       .then((resp) => {
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         return resp.json();
@@ -70,12 +71,14 @@ function OffCanvasCats() {
 
           {errorCarga && (
             <p className="text-danger">
-              No se han podido cargar las categorias. ¿Está el server de
-              Express arrancado en el puerto 3000?
+              No se han podido cargar las categorias. ¿Está el server de Express
+              arrancado en el puerto 3000?
             </p>
           )}
 
-          {!errorCarga && categorias.length === 0 && <p>Cargando categorias...</p>}
+          {!errorCarga && categorias.length === 0 && (
+            <p>Cargando categorias...</p>
+          )}
 
           <div className="list-group">
             {categorias.map((cat) => (

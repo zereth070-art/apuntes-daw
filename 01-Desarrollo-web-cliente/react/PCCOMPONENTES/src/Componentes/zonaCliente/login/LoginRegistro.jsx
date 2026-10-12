@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { validateEmail } from "../../../utils/validaciones.js";
 import "./LoginRegistro.css";
-
+import { apiFetch } from "../../../utils/apiFetch.js";
 const MIN_PASSWORD = 6;
 
 function LoginRegistro() {
@@ -25,13 +25,13 @@ function LoginRegistro() {
   const campos = [
     ...(esRegistro
       ? [
-        {
-          nombre: "nombre",
-          type: "text",
-          label: "Nombre de usuario:",
-          placeholder: "Nombre*",
-        },
-      ]
+          {
+            nombre: "nombre",
+            type: "text",
+            label: "Nombre de usuario:",
+            placeholder: "Nombre*",
+          },
+        ]
       : []),
     {
       nombre: "email",
@@ -47,13 +47,13 @@ function LoginRegistro() {
     },
     ...(esRegistro
       ? [
-        {
-          nombre: "repetir",
-          type: "password",
-          label: "Repetir contraseña:",
-          placeholder: "Repetir contraseña*",
-        },
-      ]
+          {
+            nombre: "repetir",
+            type: "password",
+            label: "Repetir contraseña:",
+            placeholder: "Repetir contraseña*",
+          },
+        ]
       : []),
   ];
 
@@ -98,14 +98,14 @@ function LoginRegistro() {
     setErrorApi("");
     try {
       const endpoint = esRegistro ? "/api/auth/register" : "/api/auth/login";
-      const datos = esRegistro ?
-        { nombre: form.nombre, email: form.email, password: form.password } :
-        { email: form.email, password: form.password };
+      const datos = esRegistro
+        ? { nombre: form.nombre, email: form.email, password: form.password }
+        : { email: form.email, password: form.password };
       // repetir no se envía al servidor, solo se valida localmente
-      const res = await fetch(endpoint, {
+      const res = await apiFetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(datos) //pasamos los datos de JSON a un string porque es asi como se envian los datos de body en un HTTP, luego lo volveremos a hacer JSON en el back
+        body: JSON.stringify(datos), //pasamos los datos de JSON a un string porque es asi como se envian los datos de body en un HTTP, luego lo volveremos a hacer JSON en el back
       });
 
       //El cuerpo de la respuesta de la API siempre se recibe, por lo que hay que volver a hacerlo JSON en el cliente
@@ -118,8 +118,9 @@ function LoginRegistro() {
 
       localStorage.setItem("token", data.token);
       // Si sale bien, se lo decimos al usuario con un mensaje de éxito. data.usuario.nombre es el nombre del usuario que devuelve la API
-      setExito(`Bienvenido ${data.usuario.nombre}. Has iniciado sesión correctamente.`);
-
+      setExito(
+        `Bienvenido ${data.usuario.nombre}. Has iniciado sesión correctamente.`,
+      );
     } catch (err) {
       setErrorApi(err.message);
     } finally {
@@ -174,13 +175,16 @@ function LoginRegistro() {
             )}
           </div>
         ))}
-        <button type="submit" className="btn btn-primary mt-3" disabled={cargando}>
+        <button
+          type="submit"
+          className="btn btn-primary mt-3"
+          disabled={cargando}
+        >
           {cargando ? "Procesando..." : esRegistro ? "Registrarse" : "Entrar"}
         </button>
       </form>
     </section>
   );
 }
-
 
 export default LoginRegistro;
