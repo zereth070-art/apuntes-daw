@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Categoria } from "../models/Categoria.js";
-import { requiereAuth } from "../middleware/requiereAuth.js";
+import requiereAuth from "../middleware/requiereAuth.js";
 
 export const routerCategorias = Router();
 
