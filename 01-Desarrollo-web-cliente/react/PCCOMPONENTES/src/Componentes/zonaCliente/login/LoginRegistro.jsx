@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { validateEmail } from "../../../utils/validaciones.js";
 import "./LoginRegistro.css";
+import { useNavigate } from "react-router";
 import { apiFetch } from "../../../utils/apiFetch.js";
+
 const MIN_PASSWORD = 6;
 
 function LoginRegistro() {
+  const navigate = useNavigate();
   // "login" o "registro" para alternar entre los dos formularios
   const [modo, setModo] = useState("registro");
   const [form, setForm] = useState({
@@ -116,11 +119,17 @@ function LoginRegistro() {
         throw new Error(data.error?.mensaje ?? "Error inesperado");
       }
 
-      localStorage.setItem("token", data.token);
-      // Si sale bien, se lo decimos al usuario con un mensaje de éxito. data.usuario.nombre es el nombre del usuario que devuelve la API
-      setExito(
-        `Bienvenido ${data.usuario.nombre}. Has iniciado sesión correctamente.`,
-      );
+      if (esRegistro) {
+        // El register ya no devuelve sesión: solo avisa de que revise el correo.
+        setExito(data.mensaje ?? "Revisa tu correo para confirmar tu cuenta.");
+        return;
+      }
+
+      localStorage.setItem("token", data.token); // guardamos tanto el token para saber si esta logueado o no y el usuario para que no se caiga en la nada
+      localStorage.setItem("usuario", JSON.stringify(data.usuario)); // y poder poner su nombre en el header
+      // Entramos directo a la tienda como el real: el mensaje de éxito no se
+      // vería porque al navegar este componente se desmonta, así que no lo ponemos.
+      navigate("/");
     } catch (err) {
       setErrorApi(err.message);
     } finally {

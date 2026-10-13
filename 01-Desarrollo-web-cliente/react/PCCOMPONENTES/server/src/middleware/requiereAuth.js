@@ -28,7 +28,17 @@ function requiereAuth(req, res, next) {
     req.usuario = datos;
     next(); // RECUERDA, esto es un middleware, asi que tienes que avanzar
   } catch (err) {
-    err.name === "TokenEpiredError" ? "TOKEN_CADUCADO" : "TOKEN_INVALIDO";
+    const codigo =
+      err.name === "TokenExpiredError" ? "TOKEN_CADUCADO" : "TOKEN_INVALIDO";
+    //asi GUARDAMOS en una variable el valor del error que salte,
+    // porque puede ser por esos 2 tipos, si no es como contar de cabeza
+    //  y se perderia en la nada y no podriamos utilizarlo
+    return res.status(401).json({
+      error: {
+        codigo: codigo,
+        mensaje: "No posees ninguna autorizacion",
+      },
+    }); //devolvemos el error
   }
 }
 

@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Usuario } from "../models/Usuario.js";
 import { validarAuth } from "../middleware/validaciones.js";
+import { enviarVerificacion } from "../config/mailer.js";
 
 export const routerAuth = Router();
 
@@ -25,6 +26,15 @@ function firmarToken(usuario) {
     { sub: usuario.id, email: usuario.email },
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRES_IN ?? "2h" },
+  );
+}
+
+/** Token de verificación: corto, de un solo uso lógico y con propósito marcado. */
+function firmarTokenVerificacion(usuario) {
+  return jwt.sign(
+    { sub: usuario.id, email: usuario.email, proposito: "verificar-email" },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.JWT_VERIFY_EXPIRES_IN ?? "15m" },
   );
 }
 
@@ -61,10 +71,15 @@ routerAuth.post(
       password: hash,
     });
 
+    // Sin sesión todavía: se firma un token corto de verificación y se manda
+    // por correo. Hasta que no se pinche el enlace, el login queda bloqueado.
+    const tokenVerificacion = firmarTokenVerificacion(usuario);
+    const enlace = `${process.env.FRONT_URL ?? "http://localhost:5173"}/verificar?token=${tokenVerificacion}`;
+    await enviarVerificacion(email, usuario.nombre, enlace);
+
     res.status(201).json({
       ok: true,
-      usuario: datosPublicos(usuario),
-      token: firmarToken(usuario),
+      mensaje: "Revisa tu correo para confirmar tu cuenta.",
     });
   },
 );
@@ -96,6 +111,16 @@ routerAuth.post(
       throw httpError(401, "CREDENCIALES", "Credenciales incorrectas.");
     }
 
+    // Cuenta creada pero correo sin confirmar: no hay sesión hasta que se
+    // pinche el enlace (los usuarios viejos sin campo también caen aquí).
+    if (!usuario.verificado) {
+      throw httpError(
+        403,
+        "NO_VERIFICADO",
+        "Confirma tu correo antes de entrar. Revisa tu bandeja.",
+      );
+    }
+
     res.json({
       ok: true,
       usuario: datosPublicos(usuario),
@@ -103,3 +128,46 @@ routerAuth.post(
     });
   },
 );
+
+/*
+ * GET /api/auth/verificar?token=...
+ *
+ * El token trae proposito "verificar-email" y caduca en 15 minutos. Se usa
+ * 400 (no 401) para que el front NO borre la sesión al pinchar el enlace.
+ */
+routerAuth.get("/api/auth/verificar", async (req, res) => {
+  const { token } = req.query;
+
+  if (!token || typeof token !== "string") {
+    throw httpError(400, "TOKEN_INVALIDO", "Enlace de verificación inválido.");
+  }
+
+  let datos;
+  try {
+    datos = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (err) {
+    const codigo =
+      err.name === "TokenExpiredError" ? "TOKEN_CADUCADO" : "TOKEN_INVALIDO";
+    throw httpError(
+      400,
+      codigo,
+      codigo === "TOKEN_CADUCADO"
+        ? "El enlace caducó, regístrate de nuevo."
+        : "Enlace de verificación inválido.",
+    );
+  }
+
+  if (datos.proposito !== "verificar-email") {
+    throw httpError(400, "TOKEN_INVALIDO", "Enlace de verificación inválido.");
+  }
+
+  const usuario = await Usuario.findById(datos.sub);
+  if (!usuario) {
+    throw httpError(400, "TOKEN_INVALIDO", "Enlace de verificación inválido.");
+  }
+
+  usuario.verificado = true;
+  await usuario.save();
+
+  res.json({ ok: true, mensaje: "Cuenta confirmada, ya puedes entrar." });
+});
