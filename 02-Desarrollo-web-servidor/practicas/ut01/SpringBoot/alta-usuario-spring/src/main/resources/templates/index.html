@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" th:href="@{css/estilos.css}">
 </head>
-<body>
-$END$
+<body class="oscuro">
+  <div class="card">
+    <h1>¿Quieres darte de alta en la aplicación?</h1>
+    <a class="botton" th:href="@{/alta}">Darme de alta</a>
+  </div>
 </body>
 </html>
