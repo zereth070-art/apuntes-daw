@@ -1,4 +1,4 @@
-# PomodoroZion 🍅
+# PomodoroZion
 
 App web full-stack con la [técnica Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Technique):
 temporizador de enfoque/descanso en tiempo real (WebSocket), tareas, sesiones
