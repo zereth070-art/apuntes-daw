@@ -3,11 +3,13 @@ import { validateEmail } from "../../../utils/validaciones.js";
 import "./LoginRegistro.css";
 import { useNavigate } from "react-router";
 import { apiFetch } from "../../../utils/apiFetch.js";
+import useAuthStore from "../../../store/authStore.js";
 
 const MIN_PASSWORD = 6;
 
 function LoginRegistro() {
   const navigate = useNavigate();
+  const login = useAuthStore((e) => e.login);
   // "login" o "registro" para alternar entre los dos formularios
   const [modo, setModo] = useState("registro");
   const [form, setForm] = useState({
@@ -125,9 +127,7 @@ function LoginRegistro() {
         return;
       }
 
-      localStorage.setItem("token", data.token); // guardamos tanto el token para saber si esta logueado o no y el usuario para que no se caiga en la nada
-      localStorage.setItem("usuario", JSON.stringify(data.usuario)); // y poder poner su nombre en el header
-      // Entramos directo a la tienda como el real: el mensaje de éxito no se
+      login(data.usuario, data.token);
       // vería porque al navegar este componente se desmonta, así que no lo ponemos.
       navigate("/");
     } catch (err) {
