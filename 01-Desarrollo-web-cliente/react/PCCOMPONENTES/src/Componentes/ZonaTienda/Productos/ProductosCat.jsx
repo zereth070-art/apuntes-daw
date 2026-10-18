@@ -1,28 +1,30 @@
-import { useParams, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 
-//import { useParams } from "react-router";
 function ProductosCat() {
-  //hook para interceptar segmentos variables
-  //const valorDevueltoUseParams = useParams();
-  //console.log("valor devuelto del hook use params", valorDevueltoUseParams);
+  // Solo destructuramos lo que usamos. setSearchParams haria falta para
+  // CAMBIAR la categoria desde aqui (por ejemplo con un <select>), pero ahora
+  // solo queremos leerla, asi que no lo sacamos.
+  const [searchParams] = useSearchParams();
 
-  //-- hook para interceptar valores variables por query string en la url
-  const [ catComponentes ] = useParams();
-  //console.log("lo que da el hook es", valorDevueltoPorHookUseSearchParams);
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log("valor 1", searchParams, "valor 2", setSearchParams);
-//const token = localStorage.getItem('token');
-/*
-    headers{
-    "Content-Type": "application/json" },
-    }
-    let headerswt= { ...headers}
-*/
+  // La categoria viaja en la URL: /Productos/Categoria?categoria=Componentes
+  // Ojo: .get() devuelve null si la clave no existe, y "" si existe pero vacia.
+  const categoria = searchParams.get("categoria");
+
+  // CASO MALO: sin categoria. Early return -> se devuelve aqui mismo y ya.
+  // "!" es negacion, y asi de paso captura los DOS casos: null Y "".
+  if (!categoria) {
+    return (
+      <p className="text-danger">
+        No has elegido ninguna categoria. Vuelve al menu y elige una.
+      </p>
+    );
+  }
+
+  // CASO BUENO: con categoria. Cada rama devuelve UNA sola cosa, asi que
+  // aqui ya no hace falta el fragmento <>.
   return (
     <div className="d-flex flex-row justify-content-center align-items-center ProductosCat">
-      {/* <h3>Pagina de productos por categorias se carga dentro del layout</h3> */}
-      <h3></h3>
-      <p>Aqui mostrariamos los productos de {catComponentes} </p>
+      <p>Aqui mostrariamos los productos de {categoria}</p>
     </div>
   );
 }
