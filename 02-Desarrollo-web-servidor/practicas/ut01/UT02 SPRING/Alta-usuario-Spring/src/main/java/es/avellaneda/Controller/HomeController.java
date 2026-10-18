@@ -1,4 +1,4 @@
-package es.avellaneda.Controller;
+package es.avellaneda.controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,12 @@ public class HomeController {
             List.of("Principiante", "Intermedio", "Avanzado");
 
     @GetMapping("/")
-    public String inicio() {
+    public String inicio(HttpSession session, Model model) {
+        String usuario = (String) session.getAttribute("usuario"); // <- leer el usuario
+        if (usuario != null) {
+            model.addAttribute("usuario",usuario); // sin guardar el modelo, usuario es una variable en memoria, asi qeu lo leemos del modelo, no hace falta que hagamos nada
+            return "bienvenida";    // vista con "Hola, usuario"
+        }
         return "index";
     }
 
@@ -51,13 +56,26 @@ public class HomeController {
             model.addAttribute("niveles", NIVELES);
             return "formulario";
         }
-
-        // Alta OK: se guarda el nombre en sesión (el "login" de clase) y a confirmar
         sesion.setAttribute("usuario", nombre.trim());
-        model.addAttribute("nombre", nombre.trim());
-        model.addAttribute("email", email);
-        model.addAttribute("tecnologia", tecnologia);
-        model.addAttribute("niveles", niveles == null ? List.of() : niveles);
+        sesion.setAttribute("altaEmail", email);
+        sesion.setAttribute("altaTecnologia", tecnologia);
+        sesion.setAttribute("altaNiveles", niveles == null ? List.of() : niveles);
+
+        return "redirect:/confirmacion";
+    }
+
+    @GetMapping ("/confirmacion")
+    public String confirmacion(HttpSession session, Model model){
+        model.addAttribute("usuario", session.getAttribute("usuario"));
+        model.addAttribute("email", session.getAttribute("altaEmail"));
+        model.addAttribute("tecnologia", session.getAttribute("altaTecnologia"));
+        model.addAttribute("niveles", session.getAttribute("altaNiveles"));
+
         return "confirmacion";
+    }
+    @PostMapping("logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // cerrar return "redirect:/";
+        return "redirect:/";
     }
 }
