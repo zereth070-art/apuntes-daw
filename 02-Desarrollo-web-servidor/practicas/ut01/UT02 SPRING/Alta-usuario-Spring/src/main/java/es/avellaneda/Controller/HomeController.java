@@ -73,9 +73,9 @@ public class HomeController {
 
         return "confirmacion";
     }
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate(); // cerrar return "redirect:/";
+        session.invalidate(); // cierra la sesión: la cookie sigue ahí pero ya no vale
         return "redirect:/";
     }
 }
