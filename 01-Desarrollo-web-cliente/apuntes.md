@@ -461,3 +461,13 @@ export default NombreComponente         // lo hace reutilizable
 Cada vez que el navegador intenta hacer una peticion al servidor en react, react lo para y carga un componente con esa url en su lugar.
 
 https://reactrouter.com/api/hooks/useNavigate
+
+## ESM vs CommonJS al importar (lección del mailer)
+
+- `import { X } from "paquete"` solo funciona si el paquete trae **export con nombre** ESM.
+- Muchos paquetes (como `node-mailjet` v6) son **CommonJS por dentro**: hay que importar por defecto y colgar el nombre: `import pkg from "node-mailjet"` + `new pkg.Client(...)`.
+- Síntoma típico: `SyntaxError: The requested module does not provide an export named 'X'` al arrancar. No es tu código, es la forma del import.
+
+## Zustand en una frase
+
+Store fuera de los componentes con datos + acciones; cada componente se suscribe con selector (`useAuthStore((e) => e.usuario)`) y repinta solo si eso cambia. Sin paréntesis pides la función, con paréntesis la ejecutas (cuidado en el render).
