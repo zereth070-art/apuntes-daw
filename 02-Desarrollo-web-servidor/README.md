@@ -21,7 +21,7 @@ UT va con qué RA y cuánto pesa cada una.
 | --- | --- | --- |
 | `practicas/ut01/jakartaServlet/InitDemoServlet` | Ciclo de vida: cuántas veces corre `init()` | desplegar el WAR en Tomcat |
 | `practicas/ut01/jakartaServlet/JakartaLogin` | Servlet + JSP + JSTL, validación, `forward` | idem |
-| `practicas/ut01/thymeleaf-tareas` | MVC con Thymeleaf, POST/redirect, `th:each` | `./mvnw spring-boot:run` |
+| `practicas/thymeleaf-tareas` | MVC con Thymeleaf, POST/redirect, `th:each` | `./mvnw spring-boot:run` |
 
 Los dos primeros son **WAR**: necesitan Tomcat desplegado. El tercero es Spring Boot y
 levanta solo con `./mvnw spring-boot:run` → `http://localhost:8080`.
