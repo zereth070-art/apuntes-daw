@@ -1,4 +1,4 @@
-import { Client } from "node-mailjet";
+import nodeMailjet from "node-mailjet";
 
 function crearCliente() {
   const contraseñaPublica = process.env.MAILJET_API_KEY;
@@ -6,7 +6,7 @@ function crearCliente() {
   if (!contraseñaPrivada || !contraseñaPublica) {
     throw new Error("Error a la hora de asignar las keys del mailjet");
   }
-  return new Client({
+  return new nodeMailjet.Client({
     apiKey: contraseñaPublica,
     apiSecret: contraseñaPrivada,
   });
