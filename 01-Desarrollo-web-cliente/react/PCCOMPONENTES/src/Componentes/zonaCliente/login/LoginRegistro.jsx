@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { validateEmail } from "../../../utils/validaciones.js";
 import "./LoginRegistro.css";
+import { useNavigate } from "react-router";
+import { apiFetch } from "../../../utils/apiFetch.js";
+import useAuthStore from "../../../store/authStore.js";
 
 const MIN_PASSWORD = 6;
 
 function LoginRegistro() {
+  const navigate = useNavigate();
+  const login = useAuthStore((e) => e.login);
   // "login" o "registro" para alternar entre los dos formularios
   const [modo, setModo] = useState("registro");
   const [form, setForm] = useState({
@@ -25,13 +30,13 @@ function LoginRegistro() {
   const campos = [
     ...(esRegistro
       ? [
-        {
-          nombre: "nombre",
-          type: "text",
-          label: "Nombre de usuario:",
-          placeholder: "Nombre*",
-        },
-      ]
+          {
+            nombre: "nombre",
+            type: "text",
+            label: "Nombre de usuario:",
+            placeholder: "Nombre*",
+          },
+        ]
       : []),
     {
       nombre: "email",
@@ -47,13 +52,13 @@ function LoginRegistro() {
     },
     ...(esRegistro
       ? [
-        {
-          nombre: "repetir",
-          type: "password",
-          label: "Repetir contraseña:",
-          placeholder: "Repetir contraseña*",
-        },
-      ]
+          {
+            nombre: "repetir",
+            type: "password",
+            label: "Repetir contraseña:",
+            placeholder: "Repetir contraseña*",
+          },
+        ]
       : []),
   ];
 
@@ -98,28 +103,38 @@ function LoginRegistro() {
     setErrorApi("");
     try {
       const endpoint = esRegistro ? "/api/auth/register" : "/api/auth/login";
-      const datos = esRegistro ?
-        { nombre: form.nombre, email: form.email, password: form.password } :
-        { email: form.email, password: form.password };
-      // repetir no se envía al servidor, solo se valida localmente
-      const res = await fetch(endpoint, {
+      const datos = esRegistro
+        ? { nombre: form.nombre, email: form.email, password: form.password }
+        : { email: form.email, password: form.password };
+      const res = await apiFetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(datos) //pasamos los datos de JSON a un string porque es asi como se envian los datos de body en un HTTP, luego lo volveremos a hacer JSON en el back
+        body: JSON.stringify(datos), //pasamos los datos de JSON a un string porque es asi como se envian los datos de body en un HTTP, luego lo volveremos a hacer JSON en el back
       });
+      // El cuerpo puede no ser JSON (si el servidor peta suele devolver HTML).
+      // Con el .catch() no reventamos: si no se puede leer nos quedamos con
+      // null, y ya decidiremos el mensaje mas abajo.
+      const data = await res.json().catch(() => null);
 
-      //El cuerpo de la respuesta de la API siempre se recibe, por lo que hay que volver a hacerlo JSON en el cliente
-      const data = await res.json();
-      // Si por lo que sea recibimos un error de la API, lo lanzamos para que el catch lo pille y lo muestre en pantalla.
-      // data.error.mensaje es el mensaje de error que devuelve la API, si no hay, mostramos un mensaje genérico
+      // Si la respuesta no fue buena, se lanza el error para que lo pille el
+      // catch de abajo y lo muestre en pantalla. Usamos el mensaje que da el
+      // servidor si lo hay; si no, uno nuestro.
       if (!res.ok) {
-        throw new Error(data.error?.mensaje ?? "Error inesperado");
+        throw new Error(
+          data?.error?.mensaje ?? "No hemos podido conectar con el servidor",
+        );
       }
 
-      localStorage.setItem("token", data.token);
-      // Si sale bien, se lo decimos al usuario con un mensaje de éxito. data.usuario.nombre es el nombre del usuario que devuelve la API
-      setExito(`Bienvenido ${data.usuario.nombre}. Has iniciado sesión correctamente.`);
+      if (esRegistro) {
+        // El register ya no devuelve sesión: solo avisa de que revise el correo.
+        setExito(data.mensaje ?? "Revisa tu correo para confirmar tu cuenta.");
+        return;
+      }
 
+      login(data.usuario, data.token);
+      // No hace falta limpiar nada antes de navegar: al cambiar de ruta este
+      // componente se desmonta y desaparece solo.
+      navigate("/");
     } catch (err) {
       setErrorApi(err.message);
     } finally {
@@ -174,13 +189,16 @@ function LoginRegistro() {
             )}
           </div>
         ))}
-        <button type="submit" className="btn btn-primary mt-3" disabled={cargando}>
+        <button
+          type="submit"
+          className="btn btn-primary mt-3"
+          disabled={cargando}
+        >
           {cargando ? "Procesando..." : esRegistro ? "Registrarse" : "Entrar"}
         </button>
       </form>
     </section>
   );
 }
-
 
 export default LoginRegistro;

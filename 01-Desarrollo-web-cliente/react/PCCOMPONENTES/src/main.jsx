@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import LoginRegistro from "./Componentes/zonaCliente/login/LoginRegistro.jsx";
+import Verificar from "./Componentes/zonaCliente/verificar/Verificar.jsx";
 import Layout from "./Componentes/ZonaTienda/Layout/Layout.jsx";
 import Home from "./Componentes/ZonaTienda/Home/Home.jsx";
 import ProductosCat from "./Componentes/ZonaTienda/Productos/ProductosCat.jsx";
@@ -24,6 +25,8 @@ const routerObjects = createBrowserRouter([
   },
   // ruta de login y registro de clientes
   { path: "/Cliente/LoginRegistro", element: <LoginRegistro /> },
+  // destino del enlace del correo de verificación
+  { path: "/verificar", element: <Verificar /> },
   // ruta comodin para paginas inexistentes (404)
   { path: "*", element: <NotFound /> },
 ]);

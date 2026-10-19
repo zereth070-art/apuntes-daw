@@ -1,5 +1,0 @@
-Java
-JavaScript
-HTML/CSS
-SQL
-Spring

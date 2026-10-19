@@ -3,6 +3,7 @@
 bin/
 out/
 target/
+effective-pom
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
