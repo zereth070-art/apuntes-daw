@@ -1,6 +1,7 @@
-package es.avellaneda.controller;
+package es.avellaneda.Controller;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor //sustituye el constructor que recibe como argumento lso atributos final
 public class HomeController {
 
     // Listas fijas del formulario: el GET las deja en el modelo y el POST
