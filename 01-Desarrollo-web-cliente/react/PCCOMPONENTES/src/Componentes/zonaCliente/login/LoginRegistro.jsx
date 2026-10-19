@@ -141,9 +141,32 @@ function LoginRegistro() {
       setCargando(false);
     }
   }
-
+  async function handlerGoogleLoginClick() {
+    try {
+      // ruta relativa: pasa por el proxy de Vite (mismo origen => sin CORS)
+      const respuesta = await fetch("/api/Cliente/LoginGoogle");
+      const datos = await respuesta.json();
+      if (!respuesta.ok || datos.codigo !== 0)
+        throw new Error(datos.mensaje ?? "No se pudo iniciar el login con Google");
+      window.open(datos.datos.url, "popupGoogle", "width=600,height=600");
+    } catch (error) {
+      console.log("error al hacer login con google: ", error);
+    }
+  }
   return (
     <section className="form-container">
+      <div className="row m-3">
+        <div className="col d-grid gap-1">
+          <button
+            type="button"
+            id="btnlogingmail"
+            className="btn btn-light btn-sm"
+            onClick={handlerGoogleLoginClick}
+          >
+            <img src="/imagenes/boton_login_GMAIL.png" />
+          </button>
+        </div>
+      </div>
       <h1>
         {esRegistro
           ? "Registro de nuevo cliente"
