@@ -6,7 +6,7 @@
 
   // ---------- APPEARANCE ----------
 
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "material-icon-theme",
 
   "window.title": "${activeEditorShort}${separator}${rootName} — Z10n BIOS v2.0",

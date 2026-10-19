@@ -1,12 +1,14 @@
 import "./Header.css";
 import { useNavigate } from "react-router";
 import OffCanvasCats from "./OffCanvasCategorias/OffCanvasCats.jsx";
+import useAuthStore from "../../../../store/authStore.js";
 
 function Header() {
   const saltarAUrl = useNavigate(); //<--- el hook useNavigate() de react-router nos permite saltar a una url si recargar toda la app desde el principio
   //invoca al modulo de enrutamiento y carga componente asociado a esa url
-  //console.log('valor de la variable satarAUrl: ', saltarAUrl)
-
+  //console.log('valor de la variable satarAUrl: ', saltarAUrl
+  const usuario = useAuthStore((e) => e.usuario);
+  const salir = useAuthStore((e) => e.salir);
   return (
     <div className="container">
       <div className="row">
@@ -79,13 +81,30 @@ function Header() {
               Buscar con IA
             </button>
 
-            <button
-              className="btn btn-light btn-sm"
-              onClick={() => saltarAUrl("/Cliente/LoginRegistro")}
-            >
-              <i className="fa-regular fa-user"></i> Mi Cuenta
-            </button>
-
+            {usuario === null ? (
+              <button
+                className="btn btn-light btn-sm"
+                onClick={() => saltarAUrl("/Cliente/LoginRegistro")}
+              >
+                <i className="fa-regular fa-user"></i> Mi Cuenta
+              </button>
+            ) : (
+              <>
+                <span className="btn btn-light btn-sm disabled">
+                  <i className="fa-regular fa-user"></i> Hola, {usuario.nombre}
+                </span>
+                <button
+                  className="btn btn-outline-secondary btn-sm"
+                  id="boton_salir_sesion"
+                  onClick={() => {
+                    salir();
+                    saltarAUrl("/");
+                  }}
+                >
+                  Salir
+                </button>
+              </>
+            )}
             <button className="btn btn-light btn-sm">
               <i className="fa-solid fa-cart-shopping position-relative"></i> Mi
               Cesta
@@ -93,7 +112,6 @@ function Header() {
           </div>
         </div>
       </div>
-
       {/* .... fila opcional para mostrar links q ha usado el usuario u ofertas relevantes...paso de hacerlo  */}
     </div>
   );
