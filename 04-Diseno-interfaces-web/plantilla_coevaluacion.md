@@ -106,7 +106,7 @@
 *(Sobresaliente: 10-9 | Notable: 8-7 | Aceptable: 6-5 | Insuficiente: 4-0)*
 
 -   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 7 ]
--   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 9 ]
+-   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 10 ]
 -   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 8 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 9 ]
 
@@ -117,10 +117,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _La disposicion de las paginas y el apartado del libro con sus diferentes secciones: sinopsis, capitulos y comentarios
+-   - Paleta de colores muy relajante y de acuerdo con el servicio ofrecido.
 
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _Añadiria las imagenes del libro para saber el libro que estas leyendo en si ya que el usuario tiene que saber tambien como es la portada del libro en si, porque al fin y al cabo es lo que atrae más al usuario.
+-   - Añadir una imagen del libro para distinguir las diferentes versiones por editoriales, parece algo tonto, pero el publico objetivo si que suele juzgar un libro por su portada, porque asocian calidad a ciertos libros de x editoriales respecto a otras, además de diferenciarlas de posibles versiones ilustradas...
 -
 
 -   # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
@@ -138,7 +138,7 @@
 
 -   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 6 ]
 -   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 8 ]
--   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 7 ]
+-   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 6 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 8 ]
 
 ---
@@ -148,10 +148,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   -La idea de la página me parece muy original y la disposición de los elementos están muy bien posicionados
+-   - Cumple la función expuesta, es sencilla, facil de utilizar visualemente y muy intuitivo.
 
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _Mejoraria el diseño del wareframe para que quede un poco mas vistoso y más organizado ya que no se llegaa a entender del todo bien
+-   - Mas desarrollo en el proyecto en general, es bastante pobre todo, muy justito, le acabo valorando positivamente porque al menos posee lo minimo.
 
 -   # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
 
@@ -166,7 +166,7 @@
 *Asigna una nota numérica (de 0 a 10) basándote en los niveles de la rúbrica oficial:*
 *(Sobresaliente: 10-9 | Notable: 8-7 | Aceptable: 6-5 | Insuficiente: 4-0)*
 
--   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 9 ]
+-   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 8 ]
 -   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 8 ]
 -   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 9 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 9 ]
@@ -178,10 +178,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _La paleta de colores que ha utilizado está muy bien, ya que encaja bien las páginas. La disposición de los elementos esta muy bien conseguida, porque nos da a entender bien la usabilidad de la aplicación.
+-   - Paleta de colores, wireframes y sitemap muy claros y profesionales.
 
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _Aunque me gusta la paleta si que es verdad que la página se ve un poco más oscuro, los colores tendrían que haber sido un poquito mas claros.
+-  - La paleta de primeras y según la teoria el morado, azul oscuro y violeta tienen buen contraste, pero acaba siendo una pagina muuy oscura y que no se ve claramente distinguido todos los elementos
 
 
 
@@ -210,10 +210,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _El mockup está muy bien diseñado, porque todos los elementos están muy bien posicionado y el usuario se le hace más facil usar la página
+-   - Es una pagina muy intuitiva y con colores claros, cosa que siempre valoraré positivamente si se aplica bien, las paginas oscuras con tonalidades negras/grises no me parece lo mas apropiado para todos los servicios.
 -
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _
+-   - Aplicar algo mejor la paleta de colores, variar algo mas que un simple blanco plano, se puede jugar con las tonalidades
 -
 # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
 
@@ -228,9 +228,9 @@
 *Asigna una nota numérica (de 0 a 10) basándote en los niveles de la rúbrica oficial:*
 *(Sobresaliente: 10-9 | Notable: 8-7 | Aceptable: 6-5 | Insuficiente: 4-0)*
 
--   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 9 ]
--   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 8 ]
--   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 8 ]
+-   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 8 ]
+-   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 9 ]
+-   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 9 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 9 ]
 
 ---
@@ -240,10 +240,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _La plantilla del wareframe es clara y concisa, los elementos están muy bien posicionados y se entiende muy bien para las pantallas finales del mockup.
+-   - Buen mockup y UIKit, bastante redondo el proyecto en general, buena paleta de colores y sitemap bastante completo.
 -
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _
+-   - Ajustaría el tamaño de alguno de los contenidos, se me hacen algo pequeños.
 
 # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
 
@@ -259,7 +259,7 @@
 *(Sobresaliente: 10-9 | Notable: 8-7 | Aceptable: 6-5 | Insuficiente: 4-0)*
 
 -   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 9 ]
--   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 8 ]
+-   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 9 ]
 -   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 9 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 9 ]
 
@@ -270,10 +270,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _El diseño final (mockup) está muy bien conseguido, la disposición de los botones, el fondo y las imágenes, tanto para la versión de escritorio como la de móvil
+-   - Visualmente es muy potente de primeras, distribución de las diferentes partes del trabajo muy buena y wireframes muy buenos.
 -
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _El sitemap lo mejoraría añadiendo cajas, para saber donde va cada cosa y añadiendole colores para distinguir cada cosa.
+-   - El sitemap está algo incompleto y la paleta de colores una vez aplicada resulta un producto oscuro con mucha dificultad para distinguir los diferentes elementos.
 -   # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
 
 **Evaluador/a (Tú):** Javier Caja Burgueño
@@ -299,10 +299,10 @@
 *Recuerda utilizar argumentos técnicos de la asignatura. Evita valoraciones subjetivas como "me gusta".*
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
--   _El diseño de la aplicación de movil es muy vistoso de ver debido a la paleta de colores que se utiliza, de esa manera el usuario es atraido directamente al catálogo de peliculas.
+-   - Utilización de imagenes buena, la aplicación movil está especialmente trabajada y bien pensada.
 -
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _
+-   - Reforcaría sobre todo la versión web, estilos, distribución de elementos.
 -
 -   # FICHA DE COEVALUACIÓN TRAS EXPOSICIÓN ORAL (RÚBRICA 3)
 
@@ -318,8 +318,8 @@
 *(Sobresaliente: 10-9 | Notable: 8-7 | Aceptable: 6-5 | Insuficiente: 4-0)*
 
 -   **Calidad y Estructura (30%):** Acabado, consistencia, adaptabilidad y profesionalidad = [ 8 ]
--   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 9 ]
--   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 9 ]
+-   **Defensa y Justificación (30%):** Justificación de diseño bajo estándares y solidez en preguntas = [ 8 ]
+-   **Comunicación y Claridad (20%):** Fluidez, estructura, control del tiempo y tono profesional = [ 8 ]
 -   **Gestión de Preguntas y Actitud Profesional (20%):** Receptividad a las críticas constructivas, saber escuchar y dar respuestas profesionales al equipo = [ 10 ]
 
 ---
@@ -330,10 +330,10 @@
 
 -   **Lo mejor del proyecto (puntos fuertes técnicos):**
 -   _Las páginas finales son muy intuitivas y hace que el usuario se sienta cómodo utilizando la página.
--   _El Uikit está muy bien organizado, se muestra todo lo relacionado del uikit en las páginas finales
+-   - En general tiene una muy buena distribución y diseño de elementos en los wireframes y buena paleta de colores, me recuerda a los concesionarios.
 -
 -   **Propuesta de mejora/refactorización (qué cambiarías del diseño y por qué técnico):**
--   _
+-   - Mejoraría la parte web, siento que a diferencia del móvil los textos por ejemplo son algo pequeños y le veo algo falto de ideas originales, intentaría variar algo el estilo de tarjetas.
 
 
 

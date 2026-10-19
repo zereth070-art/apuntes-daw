@@ -1,6 +1,7 @@
 import express from "express";
 import { routerAuth } from "./routes/auth.js";
 import { routerCategorias } from "./routes/categorias.js";
+import { routerClientes } from "./routes/clientes.js";
 
 /*
  * La app de Express es una TUBERÍA de middlewares en orden. El orden es la
@@ -26,6 +27,7 @@ export function crearApp() {
   // rutas de la API
   app.use(routerAuth);
   app.use(routerCategorias);
+  app.use(routerClientes);
 
   // 404 en JSON para rutas que no existen (tiene que ir DESPUÉS de las rutas)
   app.use((req, res) => {

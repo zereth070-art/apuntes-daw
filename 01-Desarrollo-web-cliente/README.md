@@ -25,3 +25,5 @@
 
 Crear interfaces dinámicas, usables y conectadas a datos externos.
 
+6a2Jg1y8jwX74krP
+mongodb+srv://zereth070_db_user:6a2Jg1y8jwX74krP@cluster0.nx9mb9p.mongodb.net/

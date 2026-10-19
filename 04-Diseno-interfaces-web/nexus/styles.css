@@ -1,0 +1,7 @@
+* {
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+  background: black;
+  overflow: hidden;
+}
