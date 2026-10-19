@@ -106,19 +106,23 @@ function LoginRegistro() {
       const datos = esRegistro
         ? { nombre: form.nombre, email: form.email, password: form.password }
         : { email: form.email, password: form.password };
-      // repetir no se envía al servidor, solo se valida localmente
       const res = await apiFetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datos), //pasamos los datos de JSON a un string porque es asi como se envian los datos de body en un HTTP, luego lo volveremos a hacer JSON en el back
       });
+      // El cuerpo puede no ser JSON (si el servidor peta suele devolver HTML).
+      // Con el .catch() no reventamos: si no se puede leer nos quedamos con
+      // null, y ya decidiremos el mensaje mas abajo.
+      const data = await res.json().catch(() => null);
 
-      //El cuerpo de la respuesta de la API siempre se recibe, por lo que hay que volver a hacerlo JSON en el cliente
-      const data = await res.json();
-      // Si por lo que sea recibimos un error de la API, lo lanzamos para que el catch lo pille y lo muestre en pantalla.
-      // data.error.mensaje es el mensaje de error que devuelve la API, si no hay, mostramos un mensaje genérico
+      // Si la respuesta no fue buena, se lanza el error para que lo pille el
+      // catch de abajo y lo muestre en pantalla. Usamos el mensaje que da el
+      // servidor si lo hay; si no, uno nuestro.
       if (!res.ok) {
-        throw new Error(data.error?.mensaje ?? "Error inesperado");
+        throw new Error(
+          data?.error?.mensaje ?? "No hemos podido conectar con el servidor",
+        );
       }
 
       if (esRegistro) {
@@ -128,7 +132,8 @@ function LoginRegistro() {
       }
 
       login(data.usuario, data.token);
-      // vería porque al navegar este componente se desmonta, así que no lo ponemos.
+      // No hace falta limpiar nada antes de navegar: al cambiar de ruta este
+      // componente se desmonta y desaparece solo.
       navigate("/");
     } catch (err) {
       setErrorApi(err.message);
