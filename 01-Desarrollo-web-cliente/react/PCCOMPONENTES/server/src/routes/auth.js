@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Usuario } from "../models/Usuario.js";
 import { validarAuth } from "../middleware/validaciones.js";
+import { enviarEmailBienvenida } from "../mail/mailer.js";
 
 export const routerAuth = Router();
 
@@ -60,6 +61,12 @@ routerAuth.post(
       email,
       password: hash,
     });
+
+    // fire and forget: el email no debe frenar la respuesta del registro
+    // ni tumbarlo si MailJet falla; el registro ya es válido sin el email
+    enviarEmailBienvenida(usuario).catch((err) =>
+      console.error("[mail] error al enviar el email de bienvenida:", err.message),
+    );
 
     res.status(201).json({
       ok: true,

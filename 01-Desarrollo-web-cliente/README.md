@@ -25,3 +25,5 @@
 
 Crear interfaces dinámicas, usables y conectadas a datos externos.
 
+[CREDENCIAL RETIRADA DEL HISTORIAL]
+[CREDENCIAL RETIRADA DEL HISTORIAL]
