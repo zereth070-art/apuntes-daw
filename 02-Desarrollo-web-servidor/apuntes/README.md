@@ -22,11 +22,12 @@ cuál te falta.
 | Apunte | Qué cubre |
 | --- | --- |
 | [`ut01/ra1-arquitecturas.md`](ut01/ra1-arquitecturas.md) | Cliente/servidor, Maven, capas, stack del ciclo |
+| [`ut01/ra1-jakarta-ee-aclaracion.md`](ut01/ra1-jakarta-ee-aclaracion.md) | Qué es Jakarta EE, especificaciones y quién hace cada cosa |
 | [`ut01/ra2-servlet-ciclo-vida.md`](ut01/ra2-servlet-ciclo-vida.md) | `init`/`doGet`/`destroy`, hilos, `forward` vs `redirect`, despliegue, **XSS** |
 | [`ut01/ra2-ra3-jsp-jstl.md`](ut01/ra2-ra3-jsp-jstl.md) | Scriptlet vs EL vs JSTL, `c:forEach`, `c:out`, leer ficheros |
 
-Prácticas: `practicas/ut01/jakartaServlet/` (InitDemoServlet, JakartaLogin) y
-`practicas/ut01/thymeleaf-tareas/`.
+Prácticas: `practicas/ut01/jakartaServlet/` (InitDemoServlet, JakartaLogin, Simpsons,
+login-spring) y la de Spring en `practicas/ut02/UT02 SPRING/Alta-usuario-Spring/`.
 
 ## Cómo estudiar con esto
 

@@ -1,29 +1,25 @@
-# Desarrollo web en cliente
+# Desarrollo web en cliente (DWEC 0612)
 
-## Temas
+Frontend: JavaScript moderno, DOM, eventos, formularios, `fetch`, SPA y React.
 
-- JavaScript moderno.
-- DOM.
-- Eventos.
-- Formularios.
-- Fetch.
-- APIs.
-- Componentes.
-- Estado.
-- SPA.
-- Accesibilidad frontend.
+## Apuntes
 
-## Prácticas
+- [`apuntes.md`](apuntes.md) — apuntes de clase: JS moderno, DOM, eventos, fetch/APIs,
+  AJAX vs `fetch`, XSS, estado y SPA, React + Vite, Virtual DOM y componentes.
+- [`react/apuntes/comunicacion-componentes-react.md`](react/apuntes/comunicacion-componentes-react.md)
+  — comunicación entre componentes: padre→hijo con props.
+- [`react/apuntes/pasar-valores-padre-hijo-react.md`](react/apuntes/pasar-valores-padre-hijo-react.md)
+  — props y **prop-drilling**, y cómo evitarlo (Context API, Zustand...).
 
-- Lista de tareas.
-- Buscador con filtros.
-- Consumo de API pública.
-- Carrito de compra.
-- Panel de administración simple.
+## Prácticas / proyectos
 
-## Resultado esperado
+| Carpeta | Qué es | Estado |
+| --- | --- | --- |
+| [`react/sandbox-front-back/`](react/sandbox-front-back) | Sandbox de práctica: front React (Vite) + servidor Node, para probar fetch/estado | activa |
+| [`react/_legacy/PCCOMPONENTES-Nodejs/`](react/_legacy/PCCOMPONENTES-Nodejs) | Versión archivada del backend Node de PCCOMPONENTES | archivado (no se toca) |
 
-Crear interfaces dinámicas, usables y conectadas a datos externos.
+> **PCCOMPONENTES** (React + Express + MongoDB) ya no vive en este repo:
+> tiene el suyo propio, [`zereth070-art/pccomponentes`](https://github.com/zereth070-art/pccomponentes).
 
 ## Conexión a la base de datos
 
@@ -39,4 +35,3 @@ Si alguna vez se te ha colado una credencial en un fichero versionado, **cámbia
 MongoDB Atlas** (Atlas → Database Access → Edit User → Reset Password). Borrar la
 línea del fichero no basta: la clave sigue viva en el historial de git y en la caché
 de GitHub.
-

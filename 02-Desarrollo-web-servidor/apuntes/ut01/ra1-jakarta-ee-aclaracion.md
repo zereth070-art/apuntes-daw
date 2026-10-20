@@ -1,7 +1,5 @@
 # Aclaración: ¿qué es Jakarta EE y quién hace cada cosa?
 
-![alt text](image-6.png)
-
 https://jakarta.ee/
 
 ## 1. ¿Qué es Jakarta EE?
@@ -50,8 +48,6 @@ https://jakarta.ee/
 Revisa el pom.xml de tu proyecto de clase.
 
 **¿Ves algo raro?**
-
-![alt text](image-7.png)
 
 ---
 

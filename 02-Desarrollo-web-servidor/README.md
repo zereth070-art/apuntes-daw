@@ -8,10 +8,12 @@ UT va con qué RA y cuánto pesa cada una.
 | Apunte | Tema |
 | --- | --- |
 | [`ut01/ra1-arquitecturas.md`](apuntes/ut01/ra1-arquitecturas.md) | Cliente/servidor, Maven, capas |
+| [`ut01/ra1-jakarta-ee-aclaracion.md`](apuntes/ut01/ra1-jakarta-ee-aclaracion.md) | Qué es Jakarta EE, quién hace cada cosa |
 | [`ut01/ra2-servlet-ciclo-vida.md`](apuntes/ut01/ra2-servlet-ciclo-vida.md) | Ciclo de vida del servlet, hilos, despliegue |
 | [`ut01/ra2-ra3-jsp-jstl.md`](apuntes/ut01/ra2-ra3-jsp-jstl.md) | EL, JSTL, escapado de HTML |
 | [`ut02/ra4-sesiones-auth.md`](apuntes/ut02/ra4-sesiones-auth.md) | Sesiones, cookies, autenticación, autorización |
 | [`ut02/ra5-ra8-mvc-thymeleaf.md`](apuntes/ut02/ra5-ra8-mvc-thymeleaf.md) | MVC con Spring y Thymeleaf |
+| [`ut02/spring-boot-base.md`](apuntes/ut02/spring-boot-base.md) | Spring Boot desde cero |
 | [`ut03/ra7-servicios-web-rest.md`](apuntes/ut03/ra7-servicios-web-rest.md) | REST, códigos HTTP, validación, Swagger, JWT |
 | [`ut04/ra6-ra9-persistencia-jpa.md`](apuntes/ut04/ra6-ra9-persistencia-jpa.md) | JPA, entidades, transacciones, Spring Data |
 
@@ -19,12 +21,15 @@ UT va con qué RA y cuánto pesa cada una.
 
 | Práctica | Qué practicas | Arranque |
 | --- | --- | --- |
-| `practicas/ut01/jakartaServlet/InitDemoServlet` | Ciclo de vida: cuántas veces corre `init()` | desplegar el WAR en Tomcat |
-| `practicas/ut01/jakartaServlet/JakartaLogin` | Servlet + JSP + JSTL, validación, `forward` | idem |
-| `practicas/thymeleaf-tareas` | MVC con Thymeleaf, POST/redirect, `th:each` | `./mvnw spring-boot:run` |
+| [`practicas/ut01/jakartaServlet/InitDemoServlet`](practicas/ut01/jakartaServlet/InitDemoServlet) | Ciclo de vida: cuántas veces corre `init()` | desplegar el WAR en Tomcat |
+| [`practicas/ut01/jakartaServlet/JakartaLogin`](practicas/ut01/jakartaServlet/JakartaLogin) | Servlet + JSP + JSTL, validación, `forward` | idem |
+| [`practicas/ut01/jakartaServlet/Simpsons`](practicas/ut01/jakartaServlet/Simpsons) | Servlets + JSP con un `record` (`Personaje`) | idem |
+| [`practicas/ut01/jakartaServlet/login-spring`](practicas/ut01/jakartaServlet/login-spring) | Primer login con Spring MVC / Thymeleaf | `./mvnw spring-boot:run` |
+| [`practicas/ut02/UT02 SPRING/Alta-usuario-Spring`](practicas/ut02/UT02%20SPRING/Alta-usuario-Spring) | Alta de usuario: formulario, validación, sesión, WAR en Tomcat | `./mvnw spring-boot:run` |
 
-Los dos primeros son **WAR**: necesitan Tomcat desplegado. El tercero es Spring Boot y
-levanta solo con `./mvnw spring-boot:run` → `http://localhost:8080`.
+Los tres primeros son **WAR**: necesitan Tomcat desplegado. Los de Spring Boot
+(`login-spring`, `Alta-usuario-Spring`) levantan solos con `./mvnw spring-boot:run`
+→ `http://localhost:8080`.
 
 ## Requisitos
 
