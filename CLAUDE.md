@@ -47,25 +47,8 @@ El objetivo general es aprender progresivamente a crear, probar, desplegar y man
 
 * `10-Proyectos/`
 
-  * Proyectos integradores
-  * Portfolio
-  * Proyectos personales
-  * `pomodorozion`
-  * `web-alfacentauro-291`
-
-* `11-Recursos/`
-
-  * Documentación
-  * Libros
-  * Enlaces
-  * Recursos de aprendizaje
-  * Planificación de estudio
-
-* `12-Plantillas/`
-
-  * Plantillas para apuntes
-  * Ejercicios
-  * Proyectos
+  * Índice de los proyectos (cada proyecto vive en su propio repo)
+  * Casos de estudio (p. ej. `web-291-caso`)
 
 ## Entorno
 
@@ -148,20 +131,13 @@ No mezcles automáticamente la configuración de los diferentes proyectos Node.
 
 ## Java / Spring Boot
 
-`10-Proyectos/pomodorozion` es un proyecto Spring Boot más completo que el resto del repositorio.
+`pomodorozion` es un proyecto Spring Boot completo y **ya no vive en este repositorio**:
+tiene su propio repo, `zereth070-art/pomodorozion`. El README raíz enlaza los repos de los proyectos.
 
-Utiliza Java 25 y contiene, entre otras cosas:
+Dentro de este repo sí hay una práctica de Spring Boot en
+`02-Desarrollo-web-servidor/practicas/ut02/UT02 SPRING/Alta-usuario-Spring`.
 
-* Controllers
-* Services
-* Repositories
-* DTOs
-* entidades
-* configuración de seguridad
-* WebSockets
-* tests
-
-Cuando trabajes en este proyecto, respeta su arquitectura existente.
+Utiliza Java 25. Cuando trabajes en ella, respeta su estructura existente.
 
 No simplifiques su estructura únicamente para hacer una respuesta más corta.
 
@@ -175,16 +151,14 @@ Comprueba siempre el `pom.xml` y la estructura concreta del ejercicio.
 
 ## Proyectos personales
 
-Los directorios dentro de `10-Proyectos` pueden tener objetivos y arquitecturas completamente diferentes.
+Los proyectos integradores ya no viven en este repositorio: cada uno tiene su propio repo.
+
+Actualmente:
+
+* `zereth070-art/pomodorozion` (Spring Boot + WebSocket)
+* `zereth070-art/pccomponentes` (React + Express + MongoDB)
 
 Antes de trabajar en uno de ellos, identifica primero qué proyecto se está modificando.
-
-Especialmente:
-
-* `10-Proyectos/pomodorozion`
-* `10-Proyectos/web-alfacentauro-291`
-
-no deben tratarse como si fueran el mismo proyecto.
 
 ## Git
 

@@ -17,8 +17,7 @@ Directorio de estudio para aprender Desarrollo de Aplicaciones Web de forma orde
 1. Avanza módulo a módulo: `01-Desarrollo-web-cliente` y `02-Desarrollo-web-servidor` forman el núcleo; después pasa a `03-Despliegue` y `04-Diseno-interfaces-web`.
 2. Guarda tus apuntes en cada carpeta.
 3. Resuelve prácticas pequeñas antes de pasar a proyectos grandes.
-4. Usa `10-Proyectos` para construir portfolio.
-5. Apóyate en `11-Recursos` y en las plantillas de `12-Plantillas`.
+4. Usa `10-Proyectos` para construir portfolio y casos de estudio.
 
 ## Estructura
 
@@ -26,9 +25,8 @@ Directorio de estudio para aprender Desarrollo de Aplicaciones Web de forma orde
 - `02-Desarrollo-web-servidor`: backend, APIs REST, sesiones, autenticación y seguridad.
 - `03-Despliegue`: hosting, Docker, servidores, dominios, HTTPS y CI/CD.
 - `04-Diseno-interfaces-web`: UX/UI, responsive, diseño visual y accesibilidad.
+- `05-Pyhton`: ejercicios y prácticas de Python.
 - `10-Proyectos`: índice de los proyectos (cada uno en su propio repo) y casos de estudio.
-- `11-Recursos`: enlaces, libros, canales, documentación y herramientas.
-- `12-Plantillas`: plantillas reutilizables para apuntes, ejercicios y proyectos.
 
 ## Requisitos
 
@@ -50,6 +48,8 @@ cd 02-Desarrollo-web-servidor/practicas/ut01/jakartaServlet/InitDemoServlet
 
 Copia el `*.war` de `target/` a `webapps/` de tu Tomcat o despliégalo con IntelliJ.
 
+Las prácticas de Spring Boot están en `02-Desarrollo-web-servidor/practicas/ut02/UT02 SPRING/Alta-usuario-Spring`.
+
 ### Proyectos (repositorios aparte)
 
 ```bash
@@ -66,4 +66,3 @@ cd pccomponentes && npm install && npm run dev  # → http://localhost:5173
 
 Terminar con una base sólida para crear, probar, desplegar y mantener aplicaciones web completas.
 
-# proxy inverso investigar
