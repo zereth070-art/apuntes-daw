@@ -9,6 +9,56 @@ El login normal es un `fetch` que va y vuelve. Con Google **hay que salir fuera*
 `accounts.google.com`) para que el usuario se autentique, y luego volver. Eso no se puede
 con un `fetch` normal: se hace con una **ventana popup**.
 
+## Dos conceptos previos: callback y los dos tokens
+
+### ¿Qué es un callback?
+
+Un **callback** (literalmente *call back* = "volver a llamar") es **la dirección de tu web
+a la que otro servicio te devuelve cuando termina su trabajo**. En OAuth es la
+**`redirect_uri`** o *callback URL*.
+
+Símil del teléfono de vuelta:
+
+> Tú → Google: "quiero loguear a este usuario".
+> Google: "vale, pero el usuario tiene que interactuar conmigo. Cuando termine, ¿a dónde
+> le mando de vuelta?".
+> Tú: "a `http://localhost:3000/api/Cliente/LoginGoogleCallBack`".
+> Google: "apuntado".
+
+Google **no puede** devolverte el resultado al navegador directamente, porque el navegador
+está en **su** página (`accounts.google.com`). Por eso necesita saber a qué URL **tuya**
+redirigir. Esa URL es el callback.
+
+> Ojo: en OAuth "callback" es una **URL / endpoint**, no una función JS. El nombre viene
+> del concepto original ("función que vuelve a llamar"), pero aquí significa "dirección a
+> la que me devuelven".
+
+### Los DOS tokens (la clave que se confunde)
+
+**Google no te da ya tu token de sesión.** Te da un **código** y tú lo cambias por un
+token. Es un paso de más, por seguridad.
+
+| Momento | Qué recibes | Para qué sirve |
+| --- | --- | --- |
+| Google vuelve al callback | un **`code`** (no el token aún) | un "vale" temporal, de un solo uso |
+| Tu backend lo canjea con Google | un **access token** de Google | consultar los datos del usuario |
+| Tu backend lo fabrica | **tu token de sesión** (`firmarToken`) | el que usa tu app después |
+
+```
+Google --> tu callback:  ?code=ABC123   (vale de usar y tirar)
+tu backend --> Google:   "toma el code ABC123, dame el token"
+Google --> tu backend:   access_token    (ahora sí puedo consultar datos)
+tu backend --> Google:   userinfo.get()  "¿quién es?"
+Google --> tu backend:   email, nombre...
+```
+
+**¿Por qué este paso extra?** Para que el token real **nunca pase por el navegador** (el
+sitio menos seguro). El canje `code` → token lo hace el **servidor**, en una conversación
+servidor↔servidor que el usuario no ve.
+
+**El callback es tu oportunidad de recuperar el control:** ahí Google "suelta la pelota",
+y tú decides qué hacer: crear la sesión, avisar a la ventana principal y cerrar el popup.
+
 ## Paso a paso (qué pasa desde que el usuario hace clic)
 
 ### 1. El usuario hace clic en "Iniciar sesión con Google"
