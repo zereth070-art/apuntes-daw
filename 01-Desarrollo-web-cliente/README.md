@@ -10,6 +10,8 @@ Frontend: JavaScript moderno, DOM, eventos, formularios, `fetch`, SPA y React.
   — comunicación entre componentes: padre→hijo con props.
 - [`react/apuntes/pasar-valores-padre-hijo-react.md`](react/apuntes/pasar-valores-padre-hijo-react.md)
   — props y **prop-drilling**, y cómo evitarlo (Context API, Zustand...).
+- [`react/apuntes/google-oauth-popup.md`](react/apuntes/google-oauth-popup.md)
+  — login con Google OAuth 2.0 desde React: popup, `postMessage`, callback y cierre.
 
 ## Prácticas / proyectos
 
