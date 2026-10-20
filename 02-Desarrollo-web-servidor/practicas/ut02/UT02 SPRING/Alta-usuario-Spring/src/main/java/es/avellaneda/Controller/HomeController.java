@@ -1,4 +1,4 @@
-package es.avellaneda.controller;
+package es.avellaneda.Controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;

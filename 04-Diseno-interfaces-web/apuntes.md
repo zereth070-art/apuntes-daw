@@ -177,7 +177,164 @@ Lo que corregimos en la app (cada uno con su problema de fondo):
 > *"A / AA / AAA"* o el número *4.5:1* → estás ante WCAG. Si ves *"title, meta,
 > description, semántico"* → SEO. Ambos potencian tu página.
 
-## 9. Prácticas del temario y cómo se cubren
+## 9. Sass (preprocesador de CSS)
+
+### Qué es y por qué
+
+**Sass** (*Syntactically Awesome Style Sheets*) es un **lenguaje que compila a CSS**. El
+navegador **no entiende Sass**: solo CSS. Tú escribes ficheros `.scss`, y una herramienta
+los traduce a `.css`.
+
+```
+tus .scss  ──[sass compila]──>  un .css  ──[el navegador lo lee]──>  pantalla
+```
+
+Sirve para **no repetirse**: variables (un color definido una vez), anidación (reflejar el
+árbol del HTML) y dividir el CSS en ficheros. Un volcado de Figma repite `#0B0F14` mil
+veces; con Sass se escribe una vez.
+
+> **Regla clave:** el HTML **nunca** enlaza un `.scss`. Enlaza el `.css` generado
+> (`<link rel="stylesheet" href="styles.css">`). El `.scss` es el código fuente.
+
+### Las 4 patas de Sass
+
+| Concepto | Idea |
+| --- | --- |
+| **Variables** | `$primary: #7f5ffc;` — se define una vez y se reutiliza |
+| **Anidación** | Meter reglas dentro de otras, como el árbol del HTML |
+| **Parciales** | Ficheros que empiezan por `_` (no generan `.css` propio) |
+| **`@use`** | Un fichero junta (y da acceso a) los parciales |
+
+### Parciales y punto de entrada
+
+Los ficheros `.scss` que empiezan por `_` son **parciales**: trozos de CSS que **no**
+generan su propio `.css`. El que **no** lleva `_` es el **punto de entrada** y es el que
+genera el `.css` final.
+
+```
+sass/
+  _variables.scss   ← parcial (colores, tipografía, radios)
+  _header.scss      ← parcial (barra superior)
+  _perfil.scss      ← parcial (zona del perfil)
+  main.scss         ← punto de entrada -> genera main.css
+```
+
+`main.scss` los junta:
+
+```scss
+@use "variables";
+@use "header";
+@use "perfil";
+```
+
+### Variables
+
+```scss
+// _variables.scss
+$background: #0b0f14;
+$text: #f8fafc;
+$primary: #7f5ffc;
+```
+
+Y se usan en otro fichero importándolo con un prefijo:
+
+```scss
+@use "variables" as v;
+
+body {
+  background: v.$background;   // <- prefijo v. para las variables del parcial
+  color: v.$text;
+}
+```
+
+### Anidación (el mayor enganche)
+
+En vez de repetir selectores, los anidas como el HTML:
+
+```scss
+// _header.scss
+.topbar {
+  display: flex;
+  border-bottom: 2px solid v.$primary;
+
+  .menu {                     // equivale a ".topbar .menu"
+    display: flex;
+    gap: 32px;
+
+    a {                       // equivale a ".topbar .menu a"
+      color: v.$text-secondary;
+      text-decoration: none;
+
+      &.activo { color: v.$text; font-weight: 600; }  // "&" = el selector padre -> "a.activo"
+      &:hover  { color: v.$text; }
+    }
+  }
+}
+```
+
+- `&` = "el selector padre". `&.activo` dentro de `a` → `a.activo`.
+- Se compila a CSS plano con los selectores completos. El navegador no ve la anidación.
+
+> No anidar más de 2-3 niveles: genera selectores larguísimos y CSS difícil de mantener.
+
+### Cómo compilar (con npm)
+
+```bash
+npm install --save-dev sass
+```
+
+En `package.json`:
+
+```json
+"scripts": {
+  "sass": "sass sass/main.scss styles.css",
+  "sass:watch": "sass --watch sass/main.scss styles.css"
+}
+```
+
+- `npm run sass` → compila **una vez**.
+- `npm run sass:watch` → recompila **al guardar** (lo normal mientras diseñas).
+
+### Ejemplo mínimo completo
+
+```scss
+// _variables.scss
+$bg: #0b0f14;
+$primary: #7f5ffc;
+```
+
+```scss
+// main.scss
+@use "variables" as v;
+
+body {
+  margin: 0;
+  background: v.$bg;
+  font-family: "Inter", system-ui, sans-serif;
+
+  nav {
+    display: flex;
+    gap: 24px;
+
+    a {
+      color: v.$primary;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+```
+
+Compilado a CSS plano queda:
+
+```css
+body { margin: 0; background: #0b0f14; font-family: "Inter", system-ui, sans-serif; }
+body nav { display: flex; gap: 24px; }
+body nav a { color: #7f5ffc; text-decoration: none; }
+body nav a:hover { text-decoration: underline; }
+```
+
+## 10. Prácticas del temario y cómo se cubren
 
 - [x] Rediseñar una página simple -> retoques a PomodoroZion.
 - [x] Crear un sistema de botones -> estilos de botones de la app.
@@ -190,6 +347,7 @@ Lo que corregimos en la app (cada uno con su problema de fondo):
 
 - [x] Media queries para que PomodoroZion se vea bien en móvil -> hecho (ver sección 6).
 - [ ] Flexbox y Grid a fondo (en curso en freeCodeCamp).
+- [ ] Sass / SCSS: montar el flujo de compilación en casa (ver sección 9).
 
 ## Repaso
 
