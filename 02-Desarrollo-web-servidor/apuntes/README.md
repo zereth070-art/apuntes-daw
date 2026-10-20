@@ -9,7 +9,7 @@ preguntas de repaso para repasar sin mirar.
 | --- | --- | --- | --- |
 | UT01 | Introducción: Git, Maven, Java, servlets | RA1+2+3 = 20% | ↓ abajo |
 | UT02 (I) | Páginas dinámicas y MVC | RA5+8 = 24% | [`ut02/ra5-ra8-mvc-thymeleaf.md`](ut02/ra5-ra8-mvc-thymeleaf.md), [`ut02/spring-boot-base.md`](ut02/spring-boot-base.md) |
-| UT02 (II) | Sesiones y autenticación | RA4 = 12% | [`ut02/ra4-sesiones-auth.md`](ut02/ra4-sesiones-auth.md) |
+| UT02 (II) | Sesiones y autenticación | RA4 = 12% | [`ut02/ra4-sesiones-auth.md`](ut02/ra4-sesiones-auth.md), [`ut02/google-oauth-popup.md`](ut02/google-oauth-popup.md) |
 | UT03 | Servicios web (REST, Swagger, JWT) | RA7 = 12% | [`ut03/ra7-servicios-web-rest.md`](ut03/ra7-servicios-web-rest.md) |
 | UT04 | Persistencia e híbridas (JPA) | RA6+9 = 44% | [`ut04/ra6-ra9-persistencia-jpa.md`](ut04/ra6-ra9-persistencia-jpa.md) |
 
