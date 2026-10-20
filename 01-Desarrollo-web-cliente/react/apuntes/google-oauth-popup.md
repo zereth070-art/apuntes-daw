@@ -3,6 +3,9 @@
 > Práctica de referencia: PCCOMPONENTES — [`zereth070-art/pccomponentes`](https://github.com/zereth070-art/pccomponentes)
 > (`server/src/routes/clientes.js`, `src/Componentes/zonaCliente/login/LoginRegistro.jsx`)
 
+> Versión del profesor, reconstruida aparte para comparar: [`../oauth-google-profe/`](../oauth-google-profe/)
+> (incluye snapshots de mi código *antes* de hacer el login con Google, en `antes/`).
+
 ## La idea en una frase
 
 El login normal es un `fetch` que va y vuelve. Con Google **hay que salir fuera** (a

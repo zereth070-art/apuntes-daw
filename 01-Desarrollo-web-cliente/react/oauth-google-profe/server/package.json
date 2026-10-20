@@ -1,0 +1,21 @@
+{
+  "name": "pccomponentes-profe-server",
+  "version": "1.0.0",
+  "description": "Version del profesor (referencia de clase) - Express + OAuth2 Google",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "googleapis": "^186.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
