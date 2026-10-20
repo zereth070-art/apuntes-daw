@@ -129,7 +129,7 @@ Google Workspace    →   las cuentas y el login
 probablemente la decisión más inteligente del proyecto entero, y merece studiedse bien
 porque es un patrón real que se usa mucho en el mundo real.
 
-> **Compáralo con lo tuyo.** En [`pomodorozion`](../pomodorozion) necesitaste
+> **Compáralo con lo tuyo.** En [`pomodorozion`](https://github.com/zereth070-art/pomodorozion) necesitaste
 > Docker, Render, PostgreSQL, health checks y variables de entorno
 > ([`03-Despliegue/apuntes.md`](../../03-Despliegue/apuntes.md)) porque es una app **con estado
 > persistente y usuarios**. Aquí, en cambio, no hay usuarios ni estado: solo formulario → fila

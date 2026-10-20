@@ -130,13 +130,13 @@ Antes de modificar un proyecto React, revisa su `package.json` para conocer exac
 
 No asumas que todos los proyectos React del repositorio utilizan exactamente la misma estructura.
 
-En particular, existe un proyecto principal en:
+En particular, el proyecto React principal **ya no vive en este repositorio**: ahora
+tiene su propio repo, `zereth070-art/pccomponentes`.
 
-`01-Desarrollo-web-cliente/react/PCCOMPONENTES`
+Aquí solo quedan los proyectos de práctica y apuntes:
 
-y otro proyecto relacionado con apuntes en:
-
-`01-Desarrollo-web-cliente/react/apuntes-react`
+* `01-Desarrollo-web-cliente/react/sandbox-front-back`
+* `01-Desarrollo-web-cliente/react/_legacy` (código archivado, no se toca)
 
 ## Node.js
 

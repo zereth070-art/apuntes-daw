@@ -1,6 +1,16 @@
-# Aprender DAW
+# Apuntes DAW
 
 Directorio de estudio para aprender Desarrollo de Aplicaciones Web de forma ordenada.
+
+> **Este repo es el cuaderno.** Los **proyectos** que salen de aquí viven en repositorios
+> propios, para poder verlos, clonarlos y desplegarlos por separado:
+>
+> | Proyecto | Repo |
+> | --- | --- |
+> | PomodoroZion (Spring Boot + WebSocket) | [zereth070-art/pomodorozion](https://github.com/zereth070-art/pomodorozion) |
+> | PCCOMPONENTES (React + Express + MongoDB) | [zereth070-art/pccomponentes](https://github.com/zereth070-art/pccomponentes) |
+>
+> Índice con el detalle de cada uno: [`10-Proyectos/README.md`](10-Proyectos/README.md).
 
 ## Cómo usar esta carpeta
 
@@ -16,35 +26,18 @@ Directorio de estudio para aprender Desarrollo de Aplicaciones Web de forma orde
 - `02-Desarrollo-web-servidor`: backend, APIs REST, sesiones, autenticación y seguridad.
 - `03-Despliegue`: hosting, Docker, servidores, dominios, HTTPS y CI/CD.
 - `04-Diseno-interfaces-web`: UX/UI, responsive, diseño visual y accesibilidad.
-- `10-Proyectos`: proyectos integradores para practicar y crear portfolio.
+- `10-Proyectos`: índice de los proyectos (cada uno en su propio repo) y casos de estudio.
 - `11-Recursos`: enlaces, libros, canales, documentación y herramientas.
 - `12-Plantillas`: plantillas reutilizables para apuntes, ejercicios y proyectos.
 
 ## Requisitos
 
 - **Node.js 20+** e `npm` para los proyectos frontend (React/Vite).
-- **JDK 25** para todo el repositorio (las prácticas de servidor y `10-Proyectos/pomodorozion` compilan con `release=25` / `java.version=25`).
+- **JDK 25** para las prácticas de servidor y para `pomodorozion` (compila con `release=25` / `java.version=25`).
 - **Apache Tomcat 11** no está incluido en el repo: descárgalo en [tomcat.apache.org](https://tomcat.apache.org/) si vas a desplegar los WAR de servlets.
 - Maven no hace falta instalarlo: los proyectos tienen wrapper (`mvnw` en Linux/macOS, `mvnw.cmd` en Windows). En Windows conviene tener `JAVA_HOME` apuntando al JDK.
 
 ## Puesta en marcha
-
-### Frontend (Vite + React)
-
-```bash
-cd 01-Desarrollo-web-cliente/react/PCCOMPONENTES
-npm install
-npm run dev        # desarrollo  → http://localhost:5173
-npm run build      # build de producción
-```
-
-### Backend Spring (pomodorozion)
-
-```bash
-cd 10-Proyectos/pomodorozion
-./mvnw spring-boot:run            # Linux/macOS
-mvnw.cmd spring-boot:run          # Windows
-```
 
 ### Prácticas de servidor (servlets / Thymeleaf)
 
@@ -56,6 +49,18 @@ cd 02-Desarrollo-web-servidor/practicas/ut01/jakartaServlet/InitDemoServlet
 ```
 
 Copia el `*.war` de `target/` a `webapps/` de tu Tomcat o despliégalo con IntelliJ.
+
+### Proyectos (repositorios aparte)
+
+```bash
+# PomodoroZion — Spring Boot + WebSocket
+git clone https://github.com/zereth070-art/pomodorozion.git
+cd pomodorozion && ./mvnw spring-boot:run     # → http://localhost:8080
+
+# PCCOMPONENTES — React + Express + MongoDB
+git clone https://github.com/zereth070-art/pccomponentes.git
+cd pccomponentes && npm install && npm run dev  # → http://localhost:5173
+```
 
 ## Objetivo final
 

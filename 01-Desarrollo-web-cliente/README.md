@@ -25,5 +25,18 @@
 
 Crear interfaces dinámicas, usables y conectadas a datos externos.
 
-[CREDENCIAL RETIRADA DEL HISTORIAL]
-[CREDENCIAL RETIRADA DEL HISTORIAL]
+## Conexión a la base de datos
+
+La URI de MongoDB Atlas **no se escribe aquí**: va en el `.env` del proyecto, que está
+en `.gitignore` y nunca se sube al repositorio.
+
+```env
+# .env  (NO SUBIR)
+MONGO_URI=mongodb+srv://<usuario>:<password>@<cluster>.mongodb.net/<base>
+```
+
+Si alguna vez se te ha colado una credencial en un fichero versionado, **cámbiala en
+MongoDB Atlas** (Atlas → Database Access → Edit User → Reset Password). Borrar la
+línea del fichero no basta: la clave sigue viva en el historial de git y en la caché
+de GitHub.
+
