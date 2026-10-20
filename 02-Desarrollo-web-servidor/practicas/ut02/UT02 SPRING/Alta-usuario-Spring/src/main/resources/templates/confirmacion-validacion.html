@@ -1,0 +1,54 @@
+!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alta confirmada</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #0e2438;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .card {
+        background: #fff;
+        color: #0e2438;
+        padding: 48px 40px;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 460px;
+      }
+      ul { text-align: left; color: #55606b; }
+      a.boton {
+        display: inline-block;
+        margin-top: 24px;
+        background: #e8432a;
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1 th:text="'¡Bienvenido, ' + ${usuario.nombre} + '!'">¡Bienvenido!</h1>
+      <p>Tu alta se ha registrado con estos datos:</p>
+      <ul>
+        <li>Email: <span th:text="${usuario.email}"></span></li>
+        <li>Tecnología: <span th:text="${usuario.tecnologia}"></span></li>
+        <li>
+          Niveles:
+          <span th:each="n, i : ${usuario.niveles}"
+                th:text="${n} + (${i.last} ? '' : ', ')"></span>
+        </li>
+      </ul>
+      <a class="boton" th:href="@{/}">Volver al inicio</a>
+    </div>
+  </body>
+</html>
