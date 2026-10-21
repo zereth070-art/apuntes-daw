@@ -1,0 +1,85 @@
+// ============================================================================
+//  _header.scss  —  PARCIAL: la barra superior
+// ============================================================================
+//  Esto es la ANIDACIÓN: el HTML va en cascada (.topbar > .menu > a) y el
+//  Sass reproduce ese árbol. Al compilar, Sass lo aplana a CSS normal.
+// ============================================================================
+@use "variables" as v;
+
+.topbar {
+  display: flex;
+  align-items: center;
+  height: v.$topbar-height;
+  padding: 0 v.$gutter;
+  border-bottom: 1px solid v.$separator;
+
+  .logo {
+    // El logo ya trae su propia proporción (920x138). Forzarla a 100x30 lo
+    // deformaría, así que manda la ALTURA y el ancho sale solo.
+    height: v.$logo-height;
+    width: auto;
+    display: block;
+  }
+
+  // El menú va pegado a la derecha del logo, antes de las acciones.
+  .menu {
+    display: flex;
+    gap: 40px;
+    margin-left: auto;
+
+    a {
+      color: v.$text-muted;
+      font-size: 13px;
+      font-weight: 400;
+      text-decoration: none;
+
+      // "&" = el selector padre. "&:hover" -> ".topbar .menu a:hover"
+      &:hover {
+        color: v.$text;
+      }
+
+      // "&.activo" -> ".topbar .menu a.activo"
+      &.activo {
+        color: v.$text;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .acciones {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 80px;
+
+    .buscador input {
+      width: 200px;
+      height: 36px;
+      padding: 0 12px;
+      background: v.$surface;
+      border: 1px solid v.$border;
+      border-radius: v.$radius;
+      color: v.$text;
+      font-family: inherit;
+      font-size: 13px;
+
+      &::placeholder {
+        color: v.$text-soft;
+      }
+
+      // El foco se ve: si no, el teclado no sabe dónde estás.
+      &:focus {
+        outline: 2px solid v.$text;
+        outline-offset: -1px;
+      }
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border: 1px solid v.$border;
+      border-radius: v.$radius-full;
+      object-fit: cover;
+    }
+  }
+}

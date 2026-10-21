@@ -1,0 +1,43 @@
+// ============================================================================
+//  _variables.scss  —  PARCIAL (empieza por "_", no genera CSS propio)
+// ============================================================================
+//  Un fichero por cada concepto, y las variables definidas UNA vez.
+// ============================================================================
+
+// ============================================================================
+//  PALETA
+// ============================================================================
+//  Provisional: tomada de los apuntes (sección 9) y del logo real.
+//  Cuando llegue la paleta definitiva del diseñador, se ajusta AQUÍ SOLO.
+// ============================================================================
+$background: #0b0f14; // fondo de la página
+$surface: #1a1f27; // tarjetas y campos de formulario
+$text: #f8fafc; // texto principal
+$text-muted: #94a3b8; // texto secundario (menú, placeholders)
+$primary: #7f5ffc; // morado de marca (el "X" del logo)
+$separator: #1f2937; // la línea que separa la barra superior
+$border: #2a313d; // bordes de tarjetas y del avatar
+$text-soft: #64748b; // texto terciario y placeholders
+
+// ============================================================================
+//  TIPOGRAFÍA
+// ============================================================================
+//  Provisional: Inter hasta saber la tipografía definitiva.
+// ============================================================================
+$font-family: "Inter", system-ui, -apple-system, sans-serif;
+
+// ============================================================================
+//  MEDIDAS
+// ============================================================================
+//  Provisional: sacadas de la MAQUETA (paginacutre.html). Las proporciones
+//  de una maqueta suelen ser fiables aunque los colores no lo sean.
+// ============================================================================
+$topbar-height: 60px; // alto de la barra superior
+$gutter: 24px; // margen lateral
+$logo-width: 100px; // hueco del logo
+$logo-height: 30px;
+$card-width: 220px; // ancho de las tarjetas
+$card-height: 260px;
+$card-gap: 16px; // separación entre tarjetas
+$radius: 8px; // radio de las tarjetas
+$radius-full: 9999px; // círculo (avatar)

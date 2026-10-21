@@ -1,7 +1,74 @@
-* {
-  width: 1440px;
-  height: 1024px;
-  position: relative;
-  background: black;
-  overflow: hidden;
+.topbar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 24px;
+  border-bottom: 1px solid #1f2937;
 }
+.topbar .logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+.topbar .menu {
+  display: flex;
+  gap: 40px;
+  margin-left: auto;
+}
+.topbar .menu a {
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.topbar .menu a:hover {
+  color: #f8fafc;
+}
+.topbar .menu a.activo {
+  color: #f8fafc;
+  font-weight: 600;
+}
+.topbar .acciones {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 80px;
+}
+.topbar .acciones .buscador input {
+  width: 200px;
+  height: 36px;
+  padding: 0 12px;
+  background: #1a1f27;
+  border: 1px solid #2a313d;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-family: inherit;
+  font-size: 13px;
+}
+.topbar .acciones .buscador input::placeholder {
+  color: #64748b;
+}
+.topbar .acciones .buscador input:focus {
+  outline: 2px solid #f8fafc;
+  outline-offset: -1px;
+}
+.topbar .acciones .avatar {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #2a313d;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0f14;
+  color: #f8fafc;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
