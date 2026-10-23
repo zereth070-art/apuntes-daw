@@ -20,3 +20,6 @@ dist/
 .vite/
 # Secretos (nunca subir)
 .env
+
+# Archivos comprimidos duplicados
+*.rar

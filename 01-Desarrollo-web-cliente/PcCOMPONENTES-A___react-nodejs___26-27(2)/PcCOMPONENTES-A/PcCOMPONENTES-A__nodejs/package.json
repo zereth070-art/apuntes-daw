@@ -1,0 +1,22 @@
+{
+  "name": "pccomponentes-a__nodejs",
+  "version": "1.0.0",
+  "description": "proyecto de back para portal pccomponentes con nodejs + express + mongodb",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "googleapis": "^186.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.7.0"
+  }
+}

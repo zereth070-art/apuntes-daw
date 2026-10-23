@@ -1,0 +1,12 @@
+li.list-group-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    color: #ff6000;
+}
+
+/* categoria raiz cuyo panel de subcategorias esta abierto */
+li.list-group-item.categoria-activa {
+    background-color: #f8f9fa;
+    color: #ff6000;
+    font-weight: bold;
+}
