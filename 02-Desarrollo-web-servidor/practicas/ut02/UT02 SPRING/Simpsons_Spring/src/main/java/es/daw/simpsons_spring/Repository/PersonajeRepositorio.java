@@ -1,5 +1,6 @@
 package es.daw.simpsons_spring.Repository;
 
+import es.daw.simpsons_spring.Model.Personaje;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,10 +1,11 @@
 package es.daw.simpsons_spring.Controllers;
 
-import es.daw.simpsons_spring.Dto.PersonajeDTO;
-import es.daw.simpsons_spring.Personajes.Personaje;
+import es.daw.simpsons_spring.DTOs.PersonajeDTO;
+import es.daw.simpsons_spring.Model.Personaje;
 import es.daw.simpsons_spring.Repository.PersonajeRepositorio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -17,17 +18,13 @@ public class SimpsonController {
     public SimpsonController(PersonajeRepositorio repositorio) {
         this.repositorio = repositorio;
     }
-
-    @RequestMapping("/personajes")
+    @GetMapping("/personajes")
     public String listar(Model model) {
         List<PersonajeDTO> personajes = repositorio.findAll().stream()
-                .map(p -> new PersonajeDTO(
-                        (p.getNombre() + " " + p.getApellido()).trim(),
-                        p.getEdad(),
-                        p.getOcupacion(),
-                        p.getLugar()))
+                .map(PersonajeDTO::from)
                 .toList();
-        model.addAtributte("personajes", personajes);
+
+        model.addAttribute("personajes", personajes);
         return "personajes";
     }
 
