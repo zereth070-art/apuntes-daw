@@ -127,11 +127,57 @@ Lo que corregimos en la app (cada uno con su problema de fondo):
 > es el contenedor) rompe todo el layout sin "dar error". El responsive no solo es "¿cabo?",
 > es verificar que cada botón/barrera/tarjeta se comporta en TODOS los tamaños (320, 375, 480).
 
-### (Pendiente de profundizar en el curso)
+### Flexbox, Grid y unidades relativas
 
-- **Flexbox** (disposición en fila/columna flexible).
-- **CSS Grid** (layout en rejilla de 2D).
-- Unidades relativas (`rem`, `em`, `vh`, `vw`).
+**Flexbox** sirve para repartir elementos en **una dimensión** (fila o columna). Es lo
+que hay detrás de la navbar, del header y de las cards de Bootstrap.
+
+```css
+.fila {
+  display: flex;
+  gap: 1rem;              /* separación entre hijos */
+  align-items: center;    /* alineación vertical */
+  justify-content: space-between; /* reparto horizontal */
+  flex-wrap: wrap;        /* baja a la siguiente línea si no cabe */
+}
+```
+
+- `flex: 1` en un hijo = "reparte el espacio libre".
+- `flex-wrap: wrap` + `min-width` en los hijos = rejilla responsive sin media queries.
+- Es la herramienta para **barras, menús, tarjetas en fila y centrar un elemento**.
+
+**CSS Grid** sirve para **dos dimensiones** a la vez (filas y columnas). Es lo que se usa
+para una galería o el layout general de la página.
+
+```css
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+```
+
+- `repeat(auto-fit, minmax(220px, 1fr))` = tantas columnas como quepan, mínimo 220 px.
+- `grid-template-areas` permite nombrar zonas (`header`, `main`, `aside`) y moverlas con
+  media queries.
+- Regla práctica: **Flexbox para una fila; Grid para la página entera.**
+
+**Unidades relativas** (mejor que `px` para que la interfaz escale):
+
+| Unidad | Referencia | Cuándo usarla |
+| --- | --- | --- |
+| `rem` | Tamaño de fuente de la raíz (`html`) | Márgenes, padding, tipografía |
+| `em` | Tamaño de fuente del propio elemento | Componentes que escalan con su texto |
+| `%` | Tamaño del contenedor | Anchos flexibles |
+| `vw` / `vh` | 1 % del ancho / alto de la ventana | Secciones a pantalla completa |
+| `ch` | Ancho de un carácter `0` | Limitar el ancho de un párrafo (`max-width: 65ch`) |
+
+> Ojo con `vh` en móvil: la barra del navegador cambia la altura visible. Para héroes a
+> pantalla completa se usa `min-height: 100svh` (o `100dvh`) en navegadores modernos.
+
+**Cómo se juntan con Bootstrap**: Bootstrap ya trae su grid de 12 columnas
+(`container` > `row` > `col-*`) y utilidades flex (`d-flex`, `gap-3`, `justify-content-*`).
+En la práctica `practicas/nexus` se usan las dos cosas.
 
 ## 7. Wireframes y prototipos
 

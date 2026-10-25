@@ -2,6 +2,8 @@
 
 > Apuntes construidos a partir del despliegue real de **PomodoroZion**
 > (Spring Boot + PostgreSQL) en **Render** con **Docker**.
+>
+> Anexo: [Chuleta de usuarios y autenticación en Apache2](apuntes/apache-usuarios.md).
 
 ## 1. Concepto de "desplegar"
 
@@ -78,7 +80,8 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 1. Subir el código a GitHub (branch `main`).
 2. Crear la **base de datos** PostgreSQL en Render (misma región).
 3. Crear el **Web Service** apuntando al repo de GitHub.
-   - **Root Directory**: `Aprender-DAW/10-Proyectos/pomodorozion` (código no está en la raíz).
+   - **Root Directory**: la raíz del repo de `pomodorozion` (el proyecto ya está en su
+     propio repositorio, no dentro de este cuaderno).
    - **Runtime**: Docker (detecta el `Dockerfile`).
    - **Health Check Path**: `/api/health` (endpoint que vigila si está viva).
 4. Configurar **variables de entorno** con los datos de la BD.
@@ -88,7 +91,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ## 6. Logs
 
 Los logs en Render se ven en la pestaña **"Logs"**. Son cruciales para depurar en producción:
-- Errores de conexión a la BD/sm.
+- Errores de conexión a la base de datos.
 - Mensajes de arranque de Spring ("Started Application", "Tomcat started on port").
 - Stacktraces.
 
@@ -116,7 +119,7 @@ Cuando una credencial se expone, se debe rotar:
 - [x] Auto-deploy desde Git.
 - [x] Registro/login/tareas probados en producción.
 - [ ] (Pendiente) Dominio propio.
-- [ ] (Pendiente) HTTPS (Render lo trae por defecto en la URL gratuita).
+- [x] HTTPS en la URL de Render (certificado automático).
 
 ## Dudas pendientes
 
@@ -128,48 +131,3 @@ Cuando una credencial se expone, se debe rotar:
 - [ ] Lo he practicado (despliegue real de PomodoroZion).
 - [ ] Podría explicarlo a otra persona.
 
-
-# APACHE2
-si no tenemos enlace directo a norma, la norma no funciona
-# Chuleta: Crear usuarios en Apache2
-
-## 1. Crear usuario del sistema
-```bash
-sudo adduser --system --no-create-home usuariosy3
-```
-
-## 2. Añadir al archivo de autenticación de Apache
-```bash
-sudo htpasswd /etc/apache2/.passwords/.prueba.com usuariosy3
-```
-
-## 3. Verificar el contenido del archivo
-```bash
-sudo cat /etc/apache2/.passwords/.prueba.com
-```
-
-## 4. Relanzar Apache
-```bash
-sudo systemctl restart apache2
-```
-
-## 5. Probar acceso
-Visita `http://prueba.com/usuarios2y3` y autentica con el usuario y contraseña.
-
----
-
-## Resumen rápido
-
-| Paso | Comando |
-|------|---------|
-| Crear usuario sistema | `sudo adduser --system --no-create-home USUARIO` |
-| Añadir a .htpasswd | `sudo htpasswd /etc/apache2/.passwords/.prueba.com USUARIO` |
-| Verificar | `sudo cat /etc/apache2/.passwords/.prueba.com` |
-| Relanzar Apache | `sudo systemctl restart apache2` |
-
----
-
-## Notas importantes
-- **No hace falta reiniciar Apache** al renombrar archivos (ej: `index.hmtl` → `index.html`)
-- **Sí hay que reiniciar** al modificar archivos de autenticación o configuración
-- El archivo de autenticación puede estar en `/etc/apache2/.htpasswd` o `/etc/apache2/.passwords/.prueba.com` según tu configuración

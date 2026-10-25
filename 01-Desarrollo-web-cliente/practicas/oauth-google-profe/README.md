@@ -5,7 +5,7 @@
 > ejecutarla y compararla con mi implementación real en
 > [`zereth070-art/pccomponentes`](https://github.com/zereth070-art/pccomponentes).
 >
-> Apuntes conceptuales del flujo: [`../apuntes/google-oauth-popup.md`](../apuntes/google-oauth-popup.md)
+> Apuntes conceptuales del flujo: [`../../apuntes/google-oauth-popup.md`](../../apuntes/google-oauth-popup.md)
 
 ## Por qué está aquí
 

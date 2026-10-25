@@ -3,7 +3,7 @@
 > Práctica de referencia: PCCOMPONENTES — [`zereth070-art/pccomponentes`](https://github.com/zereth070-art/pccomponentes)
 > (`server/src/routes/clientes.js`, `src/Componentes/zonaCliente/login/LoginRegistro.jsx`)
 
-> Versión del profesor, reconstruida aparte para comparar: [`../oauth-google-profe/`](../oauth-google-profe/)
+> Versión del profesor, reconstruida aparte para comparar: [`../practicas/oauth-google-profe/`](../practicas/oauth-google-profe/)
 > (incluye snapshots de mi código *antes* de hacer el login con Google, en `antes/`).
 
 ## La idea en una frase
