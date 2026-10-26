@@ -371,7 +371,21 @@ export default App
 ## Dudas pendientes
 
 - [x] Buscador con filtros sobre la lista de tareas -> hecho.
-- [ ] Autenticación en el frontend (cómo se guarda/envía la sesión).
+- [x] Autenticación en el frontend (cómo se guarda/envía la sesión).
+  Resuelto en [`apuntes/google-oauth-popup.md`](apuntes/google-oauth-popup.md) y en el
+  proyecto `pccomponentes`:
+
+  - El **token** se guarda en `localStorage` y el estado se expone con Zustand
+    (`src/store/authStore.js`).
+  - Cada petición protegida añade la cabecera `Authorization: Bearer <token>`
+    (`src/utils/apiFetch.js`).
+  - Un `401` **no siempre** cierra la sesión: si el `codigo` es `CREDENCIALES`, el usuario
+    se ha equivocado al entrar; si es `TOKEN_CADUCADO`/`TOKEN_INVALIDO`, se cierra.
+
+  > Matiz de seguridad: `localStorage` es accesible desde JavaScript, así que un XSS puede
+  > leer el token. La alternativa más robusta es una cookie `HttpOnly` + `SameSite`.
+  > Para clase se usa `localStorage` porque es más fácil de depurar; conviene saber por qué
+  > no es la opción ideal en producción.
 
 ## Repaso
 

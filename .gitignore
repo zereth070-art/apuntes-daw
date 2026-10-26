@@ -4,22 +4,37 @@ bin/
 out/
 target/
 effective-pom
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
 .idea/
 /data/
 
+# VS Code: se versiona la configuración del proyecto, no la del usuario
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
 # Tomcat (se descarga aparte: https://tomcat.apache.org/)
 apache-tomcat-*/
-11-Recursos/apache-tomcat-11.0.26/
 
 # Node
 node_modules/
 dist/
 .vite/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
 # Secretos (nunca subir)
 .env
+.env.*
+!.env.example
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
 
 # Archivos comprimidos duplicados
 *.rar

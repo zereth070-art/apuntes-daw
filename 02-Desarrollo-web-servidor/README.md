@@ -26,10 +26,14 @@ UT va con qué RA y cuánto pesa cada una.
 | [`practicas/ut01/jakartaServlet/Simpsons`](practicas/ut01/jakartaServlet/Simpsons) | Servlets + JSP con un `record` (`Personaje`) | idem |
 | [`practicas/ut01/jakartaServlet/login-spring`](practicas/ut01/jakartaServlet/login-spring) | Primer login con Spring MVC / Thymeleaf | `./mvnw spring-boot:run` |
 | [`practicas/ut02/UT02 SPRING/Alta-usuario-Spring`](practicas/ut02/UT02%20SPRING/Alta-usuario-Spring) | Alta de usuario: formulario, validación, sesión, WAR en Tomcat | `./mvnw spring-boot:run` |
+| [`practicas/ut02/UT02 SPRING/Simpsons_Spring`](practicas/ut02/UT02%20SPRING/Simpsons_Spring) | Versión Spring de la práctica de Simpsons | `./mvnw spring-boot:run` |
 
 Los tres primeros son **WAR**: necesitan Tomcat desplegado. Los de Spring Boot
-(`login-spring`, `Alta-usuario-Spring`) levantan solos con `./mvnw spring-boot:run`
-→ `http://localhost:8080`.
+(`login-spring`, `Alta-usuario-Spring`, `Simpsons_Spring`) levantan solos con
+`./mvnw spring-boot:run` → `http://localhost:8080`.
+
+> `Simpsons_Spring` lo estoy portando yo desde la versión Jakarta. Se deja **sin tocar**
+> hasta terminar el traspaso.
 
 ## Requisitos
 

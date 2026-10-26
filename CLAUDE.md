@@ -44,6 +44,11 @@ El objetivo general es aprender progresivamente a crear, probar, desplegar y man
   * Responsive
   * Diseño visual
   * Accesibilidad
+  * Práctica `practicas/nexus` (Bootstrap 5)
+
+* `05-Python/`
+
+  * Ejercicios sueltos de Python
 
 * `10-Proyectos/`
 
@@ -118,8 +123,11 @@ tiene su propio repo, `zereth070-art/pccomponentes`.
 
 Aquí solo quedan los proyectos de práctica y apuntes:
 
-* `01-Desarrollo-web-cliente/react/sandbox-front-back`
-* `01-Desarrollo-web-cliente/react/_legacy` (código archivado, no se toca)
+* `01-Desarrollo-web-cliente/apuntes/` (apuntes monográficos de React)
+* `01-Desarrollo-web-cliente/practicas/sandbox-front-back`
+* `01-Desarrollo-web-cliente/practicas/oauth-google-profe` (referencia del profe)
+* `01-Desarrollo-web-cliente/practicas/pccomponentes-clase` (material de partida del profe)
+* `01-Desarrollo-web-cliente/practicas/_legacy` (código archivado, no se toca)
 
 ## Node.js
 
@@ -134,10 +142,14 @@ No mezcles automáticamente la configuración de los diferentes proyectos Node.
 `pomodorozion` es un proyecto Spring Boot completo y **ya no vive en este repositorio**:
 tiene su propio repo, `zereth070-art/pomodorozion`. El README raíz enlaza los repos de los proyectos.
 
-Dentro de este repo sí hay una práctica de Spring Boot en
-`02-Desarrollo-web-servidor/practicas/ut02/UT02 SPRING/Alta-usuario-Spring`.
+Dentro de este repo sí hay prácticas de Spring Boot en
+`02-Desarrollo-web-servidor/practicas/ut02/UT02 SPRING/`:
 
-Utiliza Java 25. Cuando trabajes en ella, respeta su estructura existente.
+* `Alta-usuario-Spring` — alta con validación, DTO y sesión.
+* `Simpsons_Spring` — versión Spring de la práctica de Simpsons. **No tocar**: el
+  traspaso desde la versión Jakarta lo hago yo.
+
+Utiliza Java 25. Cuando trabajes en una de ellas, respeta su estructura existente.
 
 No simplifiques su estructura únicamente para hacer una respuesta más corta.
 
