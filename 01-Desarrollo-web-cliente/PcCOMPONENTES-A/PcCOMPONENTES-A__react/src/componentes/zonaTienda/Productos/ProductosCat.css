@@ -1,0 +1,19 @@
+.productos-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.producto-cat-item {
+    display: flex;
+    min-width: 0;
+}
+
+.producto-cat-item > * {
+    width: 100%;
+}
