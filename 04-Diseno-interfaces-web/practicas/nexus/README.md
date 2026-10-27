@@ -7,28 +7,40 @@ Página de tarjetas para practicar el grid y los componentes de Bootstrap 5.
 | Archivo | Qué es |
 | --- | --- |
 | `index.html` | La página. Usa clases de Bootstrap y el CSS compilado |
-| `scss/miestilo.css` | Bootstrap 5 compilado (lo que carga el HTML) |
-| `scss/miestilo.scss` | Punto de entrada original (`@import "bootstrap"`) |
-| `images/` | Imagen de las tarjetas |
+| `scss/miestilo.scss` | Punto de entrada de Sass (Bootstrap + estilos propios) |
+| `scss/_variables.scss` | Variables de Bootstrap personalizadas (parcial: el `_` evita que se compile solo) |
+| `scss/miestilo.css` | CSS compilado (lo que carga el HTML; no editar a mano) |
+| `images/` | Imágenes de las tarjetas |
 
 ## Cómo verla
 
-Abre `index.html` en el navegador. No hace falta servidor ni `npm install`.
-
-## Cómo volver a compilar el CSS
-
-El repo ya no incluye el código fuente de Bootstrap (eran ~190 archivos que la página
-no usa). Si quieres modificar variables o recompilar:
-
 ```bash
 cd practicas/nexus
-npm init -y
-npm install bootstrap sass
-npx sass --load-path=node_modules scss/miestilo.scss scss/miestilo.css
+npm install          # solo la primera vez
+npm run sass         # compila y se queda escuchando cambios
 ```
 
-Para añadir estilos propios, crea un `scss/_custom.scss` y cárgalo al final de
-`miestilo.scss`; así no se pierden los cambios al recompilar.
+Después abre `index.html` en el navegador. Mientras `npm run sass` esté activo,
+cada vez que guardes un `.scss` se regenera `scss/miestilo.css`: recarga con
+`Ctrl+Shift+R` para saltarte la caché.
+
+Para una compilación puntual (sin modo watch):
+
+```bash
+npm run sass:build
+```
+
+## Cómo personalizar Bootstrap
+
+1. Añade o cambia variables en `scss/_variables.scss` **antes** de importar
+   Bootstrap. Las más habituales: `$primary`, `$secondary`, `$body-bg`,
+   `$body-color`, `$font-family-sans-serif`.
+2. `scss/miestilo.scss` las pasa a Bootstrap con `@use ... with (...)`.
+3. Los estilos propios van **después** del `@use` de Bootstrap, para que no los
+   pise.
+
+> Ojo: si defines una variable después de importar Bootstrap, no tiene efecto.
+> Bootstrap ya generó su CSS con el valor anterior.
 
 ## Qué practicar
 

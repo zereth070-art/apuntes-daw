@@ -1,1 +1,43 @@
-@import "bootstrap";
+// 1. Variables propias (deben ir antes que Bootstrap)
+@use "variables" as v;
+
+// 2. Bootstrap compilado con nuestras variables
+@use "../node_modules/bootstrap/scss/bootstrap" with (
+  $primary: v.$primary,
+  $secondary: v.$secondary,
+  $dark: v.$dark,
+  $body-bg: v.$body-bg,
+  $body-color: v.$body-color,
+  $link-color: v.$link-color,
+  $link-hover-color: v.$link-hover-color,
+  $font-family-sans-serif: v.$font-family-sans-serif,
+  $headings-font-family: v.$headings-font-family
+);
+
+// 3. Estilos propios (siempre DESPUÉS de Bootstrap)
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h4,
+.btn {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.logo-img {
+  height: 52px;
+  width: auto;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.logo:hover .logo-img {
+  filter: brightness(1.12);
+  transform: scale(1.02);
+}
+
+.card {
+  margin-top: 100px;
+  
+}

@@ -1,0 +1,9 @@
+// Bootstrap local compilado con Sass
+@use "node_modules/bootstrap/scss/bootstrap" with (
+  $primary: #0d6efd
+);
+
+// Tus estilos personalizados
+#theme-toggle {
+  transition: all 0.2s ease-in-out;
+}

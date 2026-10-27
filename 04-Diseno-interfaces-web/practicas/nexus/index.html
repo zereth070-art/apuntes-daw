@@ -1,44 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexus — Biblioteca digital y descubrimiento de videojuegos">
     <title>Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./scss/miestilo.css">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/">
-                    <img src="" alt="" srcset="">
-                </a>
-            </div>
-        </div>
+    <header class="border-bottom py-3">
+        <div class="container d-flex justify-content-between    align-items-center">
+                <a href="/" class="logo d-flex align-items-center text-decoration-none" >
+                    <img src="./images/logo-nexus.jpg" 
+                    alt="Nexus — Juega, Valora, Comparte"
+                    height="52"
+                    class="logo-img">
+                </a>    
         <nav>
-            <div class="container">
-                <h2 class="h2">Inicio</h2>
-            
-            <div id="biblioteca">
-                <h2 class="h2">Biblioteca</h2>
-            </div>
-            <div id="Descubrir">
-                <h2 class="h2">Descubrir</h2>
-            </div>
-            <div id="perfil">
-                <h2 class="h2">perfil</h2>
-            </div>
-        </div>
-        </nav>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/biblioteca">Biblioteca</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/descubrir">Descubrir</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/perfil">Perfil</a>
+                </li>
+            </ul>
+    </nav>
     </header>
     <main>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
                 <div class="col">
-                    <div class="card h-100">    
-                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="...">
+                    <div class="card h-100"  >    
+                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="Imagen Silen Hill 2">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -49,7 +56,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100">    
-                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="...">
+                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="Imagen Silen Hill 2">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -59,7 +66,7 @@
                     </div>
                 </div><div class="col">
                     <div class="card h-100">    
-                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="...">
+                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="Imagen Silen Hill 2">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -69,7 +76,7 @@
                     </div>
                 </div><div class="col">
                     <div class="card h-100">    
-                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="...">
+                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="Imagen Silen Hill 2">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -79,7 +86,7 @@
                     </div>
                 </div><div class="col">
                     <div class="card h-100">    
-                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="...">
+                        <img src="./images/IgwsFz9BiBrFvyV7pIWpoVgd.jpg" class="card-img-top" alt="Imagen Silen Hill 2">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -91,6 +98,9 @@
             </div>
         </div>
     </main>
+    <footer>
+
+    </footer>
 </body>
 
 </html>

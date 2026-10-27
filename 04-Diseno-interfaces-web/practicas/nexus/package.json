@@ -1,0 +1,14 @@
+{
+  "name": "nexus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practica Nexus - Bootstrap personalizado con Sass",
+  "scripts": {
+    "sass": "sass --watch scss/miestilo.scss scss/miestilo.css --load-path=node_modules --quiet-deps",
+    "sass:build": "sass scss/miestilo.scss scss/miestilo.css --load-path=node_modules --quiet-deps --no-source-map"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.106.1"
+  }
+}

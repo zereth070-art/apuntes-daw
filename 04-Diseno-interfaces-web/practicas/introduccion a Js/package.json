@@ -1,0 +1,13 @@
+{
+  "name": "introduccion-a-js",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sass": "sass --watch custom.scss custom.css --quiet-deps",
+    "sass:build": "sass custom.scss custom.css --quiet-deps --no-source-map"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.106.1"
+  }
+}

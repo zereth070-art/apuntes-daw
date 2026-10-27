@@ -1,0 +1,19 @@
+// ============================================================
+// Variables de Bootstrap
+// Se importan ANTES de Bootstrap para que este las use.
+// Si añades una variable aquí, vuelve a compilar.
+// ============================================================
+
+$primary: #7b5cff;
+$secondary: #00b4ff;
+$dark: #0a0101;
+$body-bg: #0a0a0a;
+$body-color: #e0e0e0;
+
+// Enlaces claros para que se vean sobre el fondo oscuro
+$link-color: $body-color;
+$link-hover-color: #ffffff;
+
+// Tipografía
+$font-family-sans-serif: 'Roboto', sans-serif;
+$headings-font-family: 'Titillium Web', sans-serif;
