@@ -4,7 +4,7 @@ export default function MiniProducto({ producto }) {
     const navigate = useNavigate();
 
     return (
-            <div className="card" style={{width: '18rem'}} >
+            <div className="card" style={{width: '18rem'}} onClick={() => navigate(`/DetallesProducto/${producto._id}`)}>
 
                 <div id={`carouselProducto-${producto._id}`} className="carousel slide">
                     <div className="carousel-indicators">

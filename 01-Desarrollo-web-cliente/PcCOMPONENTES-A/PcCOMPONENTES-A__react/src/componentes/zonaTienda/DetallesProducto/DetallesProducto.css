@@ -1,0 +1,81 @@
+.detalle-producto__imagen-principal {
+    cursor: zoom-in;
+}
+
+.detalle-producto__imagen-principal img {
+    width: 100%;
+    max-height: 30rem;
+    object-fit: contain;
+}
+
+.detalle-producto__miniatura {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.detalle-producto__miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.detalle-producto__miniatura--activa,
+.detalle-producto__miniatura:hover {
+    border: 2px solid #333;
+}
+
+.detalle-producto__imagen-ampliada {
+    max-height: 75vh;
+    object-fit: contain;
+}
+
+.detalle-producto__naranja,
+.detalle-producto__estrella {
+    color: #ff6000;
+}
+
+.detalle-producto__precio {
+    line-height: 1;
+}
+
+.detalle-producto__precio-euros {
+    font-size: 2rem;
+}
+
+.detalle-producto__financiacion {
+    background-color: #fde9dd;
+    border-left: 0.25rem solid #ff6000;
+}
+
+.detalle-producto__badge-descuento {
+    background-color: #e4002b;
+}
+
+.detalle-producto__btn-carrito {
+    background-color: #ff6000;
+    border-color: #ff6000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 0.25rem;
+}
+
+.detalle-producto__btn-carrito:hover,
+.detalle-producto__btn-carrito:focus-visible {
+    background-color: #e55600;
+    border-color: #e55600;
+    color: #fff;
+}
+
+.detalle-producto .nav-tabs .nav-link {
+    color: var(--bs-body-color);
+}
+
+.detalle-producto .nav-tabs .nav-link.active {
+    color: #ff6000;
+    font-weight: 600;
+    border-bottom: 0.2rem solid #ff6000;
+}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import useStore from '../../../../stateGlobal/zustandStateSlices.js'
 import OffCanvasCats from './OffCanvasCategorias/OffCanvasCats.jsx'
 import SessionButton from './SessionButton/SessionButton.jsx'
+import OffCanvasCesta from '../../Cesta/offCanvasCesta/offCanvasCesta.jsx'
 
 function Header(){
   const { datosCliente }=useStore(); //<--- hook de ZUSTAND q devuelve el objeto global del store al cual tienen acceso todos los componentes de la app
@@ -52,17 +53,19 @@ function Header(){
                     <button className="btn btn-outline-secondary btn-sm"><img src="/imagenes/icono_stars.png" alt="icono stars" /> Buscar con IA</button>
 
                     <SessionButton saltarAUrl={saltarAUrl} 
-                                   email={datosCliente?.cuenta.email || null} 
-                                   icono={ datosCliente?.cuenta.imagenAvatar || null}/>
+                                  email={datosCliente?.cuenta.email || null} 
+                                  icono={ datosCliente?.cuenta.imagenAvatar || null}/>
 
                     <button className="btn btn-light btn-sm">
                         <i className="fa-solid fa-cart-shopping position-relative"></i> Mi Cesta
                     </button>
+                    <OffCanvasCesta />
                 </div>
                 
             </div>
         </div>
-
+        <div>
+        </div>
         {/* .... fila opcional para mostrar links q ha usado el usuario u ofertas relevantes...paso de hacerlo  */}
     </div>
     )

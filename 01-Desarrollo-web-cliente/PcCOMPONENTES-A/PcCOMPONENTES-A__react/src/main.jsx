@@ -3,53 +3,46 @@ import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router'
-import  DetalleProducto from ',/componentes/zonaTienda/Productos/DetalleProducto.jsx'
-//import App from './App.jsx'
+import GetProductoLoader from './loaders/GetProductoLoader.js'
 import LoginRegistro from './componentes/zonaCliente/registro/LoginRegistro.jsx'
 import Layout from './componentes/zonaTienda/Layout/Layout.jsx'
 import Home from './componentes/zonaTienda/Home/Home.jsx'
 import ProductosCat from './componentes/zonaTienda/Productos/ProductosCat.jsx'
-//#region ------- configuracion modulo de enrutamiento react:  paquete react-router ------
+import DetallesProducto from './componentes/zonaTienda/DetallesProducto/DetallesProducto.jsx'
 
-//1ºpaso: instalar el paquete react-router-dom: npm install react-router --save
+const routerObjects = createBrowserRouter([
+  //--- layout principal y sus rutas hijas
+  {
+    element: <Layout />,
+    children: [
+      { path: '/', element: <Home /> },
+      // segmentos fijos + valores por querystring: useSearchParams()
+      { path: 'Productos', element: <ProductosCat /> },
+      // segmento variable: params.idProducto en el loader
+      {
+        path: 'DetallesProducto/:idProducto',
+        loader: GetProductoLoader,
+        middleware: [
+          function middleware1({context, params, request, url}, next) {
+            console.log(" ========> ejecutando antes de renderizar el componete DetallesProducto.jsx")
+            next();
+          },
+          function middleware2({context, params, request, url}, next) {
+              console.log("========> middleware de vuelta")
+            next();
+            }
 
-//2º paso: configurar las diferentes rutas a interceptar por el modulo de enrutamiento y configurar que
-//componente se va a renderizar. Para hacerlo se usa la funcion: createBrowerRouter(...)
-//esta funcion recibe como parametros un array de objetos js q deben implementar la clase Route de react-router
-//cada objeto Route tiene al menos estas dos propiedades:
-// - 'path': ruta a interceptar en el navegador
-// - 'element' o 'Component': componente a renderizar cuando se intercepta la ruta
-
-  const routerObjects=createBrowserRouter(
-    [
-      //---objeto route para layout principal y rutas de productos por categorias como rutas hijas...
-      {  
-         element: <Layout />,
-         children:[
-          { path:'/', element: <Home/>},
-          //{ path:'Productos/Categoria/:nombreCat', element: <ProductosCat/> } //<---- objeto Route con segmento variable para usar: useParams()
-           { path:'Productos', element: <ProductosCat/> }, //<------------ objeto Route con segmentos fijos y valores variables pasados por queryString para usar: useSearchParams()
-           { path:'Producto/:idProducto', element: <div>Mostrar detalles del producto</div> } //<---- objeto Route con segmento variable para usar: useParams()
-         ]
-        }, 
-      //--- objeto route para la ruta de login y registro de clientes
-      { path: '/Cliente/LoginRegistro', element: <LoginRegistro /> },
-      //--- objeto route para el dashboard de clientes y rutas hijas para las diferentes secciones del dashboard
-      {path:'Producto/:idProducto',element: <DetalleProducto/>}
-      //{}
-    ] //<---- array de objetos Route de react-router
-  )
-
-//3º paso: comoo compnente principal de la aplicacion se debe renderizar el componente de react-router: <RouterProvider..></RouterProvider..>
-// este componente recibe como propiedades el objeto de rutas creado en el paso 2 y lo activa...
-
-//#endregion
-
-
+        ],
+        element: <DetallesProducto />
+      }
+    ]
+  },
+  //--- login y registro de clientes
+  { path: '/Cliente/LoginRegistro', element: <LoginRegistro /> }
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={routerObjects} />
-  </StrictMode>,
+  </StrictMode>
 )
-
