@@ -1,35 +1,30 @@
 import './ListaCategorias.css';
 import { useState, useEffect } from 'react';
-import useCategorias from '../../../../../../customHooks/Categorias.Hook.js';
 
 function ListaCategorias({ pathCat='principales', onCategoriaSeleccionada, categoriaActiva }) {
-    
-    const {categorias} = useCategorias(pathCat);
-    console.log('ListaCategorias.jsx: categorias recuperadas del hook useCategorias: ', categorias);
-    
-    // const [categorias, setCategorias] = useState([]);
+    const [categorias, setCategorias] = useState([]);
 
-    // useEffect(
-    //     ()=>{
-    //         async function fetchCategorias(){
-    //             try{
-    //                 const response=await fetch(`http://localhost:3000/api/Tienda/Categorias?pathCat=${pathCat}`);
-    //                 const bodyRespone=await response.json();
-    //                 const { codigo, mensaje, datos }=bodyRespone;
+    useEffect(
+        ()=>{
+            async function fetchCategorias(){
+                try{
+                    const response=await fetch(`http://localhost:3000/api/Tienda/Categorias?pathCat=${pathCat}`);
+                    const bodyRespone=await response.json();
+                    const { codigo, mensaje, datos }=bodyRespone;
 
-    //                 if (codigo !==0) throw new Error(mensaje);
+                    if (codigo !==0) throw new Error(mensaje);
 
-    //                 setCategorias(datos.categorias);
+                    setCategorias(datos.categorias);
 
-    //             }catch(error){
-    //                 console.error('Error al obtener las categorias: ', error)
-    //                 setCategorias([]);
-    //             }
-    //         }
-    //         fetchCategorias();
-    //     }
-    //     ,[pathCat]
-    // )
+                }catch(error){
+                    console.error('Error al obtener las categorias: ', error)
+                    setCategorias([]);
+                }
+            }
+            fetchCategorias();
+        }
+        ,[pathCat]
+    )
 
     return (
         <ul className="list-group list-group-flush">

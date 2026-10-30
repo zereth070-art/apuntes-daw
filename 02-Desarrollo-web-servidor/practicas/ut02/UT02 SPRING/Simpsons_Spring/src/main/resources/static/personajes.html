@@ -31,7 +31,6 @@
 
     <fieldset>
         <legend>Ordenar</legend>
-
         <label>Ordenar por
             <select name="ordenarPor">
 <!--                <option value="nombre" ${param.ordenarPor == 'nombre' ? 'selected' : ''}>Nombre</option>-->
@@ -43,10 +42,8 @@
                     <option th:value="apellido" th:text="${personaje.apellido}" >Apellido</option>
                     <option th:value="edad" th:text="${personaje.edad}" >Edad</option>
                     <option th:value="ocupacion" th:text="${personaje.ocupacion}" >Ocupacion</option>
-
             </select>
         </label>
-
         <label class="check">
             <input type="checkbox" name="descendente" ${!empty param.descendente ? 'checked' : ''}>
             Descendente

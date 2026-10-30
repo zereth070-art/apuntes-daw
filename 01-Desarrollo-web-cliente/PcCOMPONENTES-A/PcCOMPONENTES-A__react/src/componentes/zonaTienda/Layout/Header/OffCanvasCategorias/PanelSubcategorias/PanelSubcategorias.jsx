@@ -15,7 +15,7 @@ function PanelSubcategorias({ categoriaPadre, onClose }) {
 
     const [subcategoriaAbierta, setSubcategoriaAbierta] = useState(null)
 
-    return (
+    return (    
         <aside className={`panel-subcategorias ${categoriaPadre ? 'abierto' : ''}`}
                aria-hidden={!categoriaPadre}>
             {categoriaPadre && (

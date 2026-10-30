@@ -51,8 +51,11 @@ while True :
                 for venta in ventas:
                     total_entradas += venta["entradas"]
                     recaudacion += venta["total"]
+                print("========== RESUMEN DE VENTAS ==========")
+                print(f"Operaciones realizadas: {ventas,length}")
                 print(f"Entradas vendidas: {total_entradas}")
                 print(f"Recaudación: {recaudacion} €")
+                print ("=======================================")
         case 3:
             print("Hasta luego")
             break

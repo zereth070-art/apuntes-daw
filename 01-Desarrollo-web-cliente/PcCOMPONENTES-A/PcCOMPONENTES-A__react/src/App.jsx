@@ -29,7 +29,7 @@ function App() {
   //el hook useState te devuelve un ARRAY con dos elementos:
   //- en la primera posicion esta el valor actual de la variable
   //- en la segunda posicion te devuelve una FUNCION QUE PERMITE ACTUALIZAR/MODIFICAR su valor desde codigo
-
+ 
   // function clickBoton(ev){
   //    console.log('evento0 interceptado en funcion click del boton...', ev);
   //    //contador++;

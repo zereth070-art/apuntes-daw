@@ -5,8 +5,9 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
+  
   "main": "server.js",
- "scripts": {
+  "scripts": {
   "start": "node server.js",
   "dev": "node --watch server.js",
   "test": "echo \"Error: no test specified\" && exit 1"
