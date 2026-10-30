@@ -48,3 +48,5 @@ npm run sass:build
 - Añadir una navbar con `navbar-expand-lg` y un offcanvas.
 - Revisar el contraste y el `alt` de las imágenes.
 - Probar la página a 320, 375 y 480 px de ancho.
+# Bibliografia
+https://www.nngroup.com/articles/footers/ <---- FOOTERS
